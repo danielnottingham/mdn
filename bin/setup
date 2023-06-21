@@ -17,10 +17,17 @@ FileUtils.chdir APP_ROOT do
   system! "gem install bundler --conservative"
   system("bundle check") || system!("bundle install")
 
-  # puts "\n== Copying sample files =="
-  # unless File.exist?("config/database.yml")
-  #   FileUtils.cp "config/database.yml.sample", "config/database.yml"
-  # end
+  puts "\n== Installing Javascript dependencies =="
+  system! "yarn install --check-files"
+
+  puts "\n== Compiling CSS =="
+  system! "bin/rails css:build"
+
+  puts "\n== Compiling Javascript =="
+  system! "bin/rails javascript:build"
+
+  puts "\n== Recreating database =="
+  system! "bin/rails db:reset"
 
   puts "\n== Preparing database =="
   system! "bin/rails db:prepare"
