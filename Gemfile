@@ -8,6 +8,7 @@ ruby "3.2.1"
 gem "bootsnap", "1.16.0", require: false
 gem "cssbundling-rails", "1.1.2"
 gem "jsbundling-rails", "1.1.1"
+gem "lookbook", "2.0.5"
 gem "pg", "1.4.5"
 gem "puma", "5.0"
 gem "rails", "7.0.4.3"
@@ -16,6 +17,7 @@ gem "sprockets-rails", "3.4.2"
 gem "stimulus-rails", "1.2.1"
 gem "turbo-rails", "1.4.0"
 gem "tzinfo-data", "2.0.6", platforms: %i[mingw mswin x64_mingw jruby]
+gem "view_component", "3.2.0"
 
 # gem "kredis"
 # gem "bcrypt", "~> 3.1.7"
