@@ -2,6 +2,7 @@ require:
   - rubocop-performance
   - rubocop-rails
   - rubocop-rspec
+  - rubocop-capybara
 
 AllCops:
   NewCops: enable
@@ -30,6 +31,9 @@ Layout/FirstMethodArgumentLineBreak:
 Layout/FirstMethodParameterLineBreak:
   Enabled: true
 
+Layout/MultilineArrayBraceLayout:
+  EnforcedStyle: new_line
+
 Layout/MultilineHashKeyLineBreaks:
   Enabled: true
 
@@ -47,6 +51,10 @@ Lint/MissingSuper:
 
 Lint/SuppressedException:
   AllowComments: true
+
+Metrics/AbcSize:
+  Exclude:
+    - app/controllers/**/*
 
 Metrics/BlockLength:
   Exclude:
@@ -69,7 +77,13 @@ Metrics/ParameterLists:
     - app/components/**/*
     - spec/components/previews/**/*
 
+Naming/VariableNumber:
+  Enabled: false
+
 Performance/BlockGivenWithExplicitBlock:
+  Enabled: false
+
+Rails/RedundantPresenceValidationOnBelongsTo:
   Enabled: false
 
 RSpec/ExampleLength:
@@ -78,6 +92,9 @@ RSpec/ExampleLength:
 
 RSpec/MessageSpies:
   EnforcedStyle: receive
+
+RSpec/ImplicitSubject:
+  EnforcedStyle: single_statement_only
 
 Style/Documentation:
   Enabled: false
@@ -93,3 +110,7 @@ Style/SymbolProc:
 
 Style/UnlessLogicalOperators:
   EnforcedStyle: forbid_logical_operators
+
+RSpec/MultipleExpectations:
+  Exclude:
+    - spec/requests/**/*

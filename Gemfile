@@ -24,6 +24,7 @@ gem "tzinfo-data", "2.0.6", platforms: %i[mingw mswin x64_mingw jruby]
 
 group :development, :test do
   gem "debug", "1.8.0", platforms: %i[mri mingw x64_mingw]
+  gem "factory_bot_rails", "6.2.0"
 end
 
 group :development do
@@ -36,4 +37,10 @@ group :development do
   gem "rubocop-rspec", "2.22.0"
   gem "web-console", "4.2.0"
   # gem "spring"
+end
+
+group :test do
+  gem "rspec-rails", "6.0.2"
+  gem "shoulda-matchers", "5.3.0"
+  gem "simplecov", "0.22.0", require: false
 end
