@@ -16,6 +16,15 @@ RSpec.describe Mdn::ViewHelper do
     end
   end
 
+  describe "#mdn_label" do
+    it "renders Mdn::Form::LabelComponent" do
+      helper_result = process_html(mdn_label)
+      component_result = render_inline(Mdn::Form::LabelComponent.new { "Label" }).to_html
+
+      expect(helper_result).to eq component_result
+    end
+  end
+
   describe "#mdn_main_content" do
     it "renders Mdn::Structure::MainContentComponent" do
       helper_result = process_html(mdn_main_content(title: "Dashboard"))
@@ -47,6 +56,15 @@ RSpec.describe Mdn::ViewHelper do
     it "renders Mdn::Structure::SidebarComponent" do
       helper_result = process_html(mdn_sidebar)
       component_result = render_inline(Mdn::Structure::SidebarComponent.new).to_html
+
+      expect(helper_result).to eq component_result
+    end
+  end
+
+  describe "#mdn_text_field" do
+    it "renders Mdn::Form::TextFieldComponent" do
+      helper_result = process_html(mdn_text_field)
+      component_result = render_inline(Mdn::Form::TextFieldComponent.new).to_html
 
       expect(helper_result).to eq component_result
     end
