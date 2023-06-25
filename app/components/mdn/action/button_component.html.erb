@@ -1,0 +1,13 @@
+<% if builder == :button_tag %>
+  <%= button_tag class: button_classes, **html_options do %>
+    <%= content %>
+  <% end %>
+<% elsif builder == :button_to %>
+  <%= button_to href.to_s, class: button_classes, **html_options do %>
+    <%= content %>
+  <% end %>
+<% elsif builder == :link_to %>
+   <%= link_to href.to_s, class: button_classes, **html_options do %>
+    <%= content %>
+  <% end %>
+<% end %>
