@@ -7,6 +7,15 @@ RSpec.describe Mdn::ViewHelper do
     Nokogiri::HTML.fragment(html).to_html
   end
 
+  describe "#mdn_button" do
+    it "renders Mdn::Action::ButtonComponent" do
+      helper_result = process_html(mdn_button)
+      component_result = render_inline(Mdn::Action::ButtonComponent.new).to_html
+
+      expect(helper_result).to eq component_result
+    end
+  end
+
   describe "#mdn_main_content" do
     it "renders Mdn::Structure::MainContentComponent" do
       helper_result = process_html(mdn_main_content(title: "Dashboard"))

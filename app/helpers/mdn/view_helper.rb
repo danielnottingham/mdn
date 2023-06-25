@@ -3,6 +3,7 @@
 module Mdn
   module ViewHelper
     MDN_HELPERS = {
+      button: "Mdn::Action::ButtonComponent",
       main_content: "Mdn::Structure::MainContentComponent",
       navbar: "Mdn::Structure::NavbarComponent",
       shell: "Mdn::Structure::ShellComponent",
