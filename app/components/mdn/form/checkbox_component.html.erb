@@ -1,0 +1,5 @@
+<%= content_tag :div, class: "flex gap-2 items-center" do %>
+  <%= hidden_field_tag html_options[:name], "0", id: nil %>
+  <%= check_box_tag nil, "1", checked, check_box_options %>
+  <%= label_tag label_id, content, class: label_classes %>
+<% end %>
