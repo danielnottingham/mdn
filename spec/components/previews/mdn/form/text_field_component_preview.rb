@@ -6,7 +6,7 @@ module Mdn
       # @param size [Symbol] select [small, base, large]
       # @param placeholder
       def playground(size: :base, placeholder: "placeholder")
-        render(Mdn::Form::TextFieldComponent.new(size:, id: "fake-id", placeholder:))
+        mdn_text_field(size:, id: "fake-id", placeholder:)
       end
     end
   end

@@ -3,8 +3,8 @@
 module Mdn
   module Form
     class FileFieldComponentPreview < ViewComponent::Preview
-      def playground(**html_options)
-        mdn_file_field(**html_options)
+      def default
+        mdn_file_field
       end
     end
   end

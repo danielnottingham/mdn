@@ -5,7 +5,7 @@ module Mdn
     class LabelComponentPreview < ViewComponent::Preview
       # @param content
       def playground(content: "Label")
-        render(Mdn::Form::LabelComponent.new) { content }
+        mdn_label { content }
       end
     end
   end

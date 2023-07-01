@@ -17,7 +17,7 @@ module Mdn
         href: nil,
         content: "Some text"
       )
-        render(Mdn::Action::ButtonComponent.new(color:, size:, disabled:, builder:, href:)) do
+        mdn_button(color:, size:, disabled:, builder:, href:) do
           content
         end
       end
@@ -25,35 +25,29 @@ module Mdn
       # @!group Default
       # @label Default button
       def default
-        render(Mdn::Action::ButtonComponent.new) { "Default button" }
+        mdn_button { "Button text" }
       end
       # @!endgroup
 
-      # @!group Light
+      # @!group Colors
       # @label Light button
-      def button_light
-        render(Mdn::Action::ButtonComponent.new(color: :light)) { "Light button" }
+      def with_color_light
+        mdn_button(color: :light) { "Button text" }
       end
-      # @!endgroup
 
-      # @!group Red
       # @label Red button
-      def button_red
-        render(Mdn::Action::ButtonComponent.new(color: :red)) { "Red button" }
+      def with_color_red
+        mdn_button(color: :red) { "Button text" }
       end
-      # @!endgroup
 
-      # @!group Emerald
       # @label Emerald button
-      def button_emerald
-        render(Mdn::Action::ButtonComponent.new(color: :emerald)) { "Emerald button" }
+      def with_color_emerald
+        mdn_button(color: :emerald) { "Button text" }
       end
-      # @!endgroup
 
-      # @!group Slate
       # @label Slate button
-      def button_slate
-        render(Mdn::Action::ButtonComponent.new(color: :slate)) { "Slate button" }
+      def with_color_slate
+        mdn_button(color: :slate) { "Button text" }
       end
       # @!endgroup
     end
