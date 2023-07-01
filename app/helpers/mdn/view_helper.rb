@@ -5,6 +5,7 @@ module Mdn
     MDN_HELPERS = {
       button: "Mdn::Action::ButtonComponent",
       checkbox: "Mdn::Form::CheckboxComponent",
+      color_field: "Mdn::Form::ColorFieldComponent",
       file_field: "Mdn::Form::FileFieldComponent",
       label: "Mdn::Form::LabelComponent",
       main_content: "Mdn::Structure::MainContentComponent",

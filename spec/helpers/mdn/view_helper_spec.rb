@@ -25,6 +25,15 @@ RSpec.describe Mdn::ViewHelper do
     end
   end
 
+  describe "#mdn_color_field" do
+    it "renders Mdn::Form::ColorFieldComponent" do
+      helper_result = process_html(mdn_color_field)
+      component_result = render_inline(Mdn::Form::ColorFieldComponent.new).to_html
+
+      expect(helper_result).to eq component_result
+    end
+  end
+
   describe "#mdn_file_field" do
     it "renders Mdn::Form::FileFieldComponent" do
       helper_result = process_html(mdn_file_field)
