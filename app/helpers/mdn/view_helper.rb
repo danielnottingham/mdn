@@ -7,6 +7,7 @@ module Mdn
       checkbox: "Mdn::Form::CheckboxComponent",
       color_field: "Mdn::Form::ColorFieldComponent",
       file_field: "Mdn::Form::FileFieldComponent",
+      icon: "Mdn::IconsAndImages::IconComponent",
       label: "Mdn::Form::LabelComponent",
       main_content: "Mdn::Structure::MainContentComponent",
       navbar: "Mdn::Structure::NavbarComponent",

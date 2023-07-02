@@ -43,6 +43,15 @@ RSpec.describe Mdn::ViewHelper do
     end
   end
 
+  describe "#mdn_icon" do
+    it "renders Mdn::IconsAndImages::IconComponent" do
+      helper_result = process_html(mdn_icon(name: :calendar))
+      component_result = render_inline(Mdn::IconsAndImages::IconComponent.new(name: :calendar)).to_html
+
+      expect(helper_result).to eq component_result
+    end
+  end
+
   describe "#mdn_label" do
     it "renders Mdn::Form::LabelComponent" do
       helper_result = process_html(mdn_label)
