@@ -18,6 +18,7 @@ module Mdn
         cog_6_tooth: :solid,
         facebook: :solid,
         home: :solid,
+        bolt: :solid,
         plus: :solid,
         trash: :solid,
         twitter: :solid,

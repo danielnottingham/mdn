@@ -1,1 +1,4 @@
-<%= link_to content, href, class: "flex items-center rounded-lg p-2 text-base font-medium text-indigo-500 hover:bg-indigo-100 lg:order-2" %>
+<%= link_to href, class: navbar_item_classes do %>
+  <%= mdn_icon(name: icon) if icon %>
+  <span><%= content %></span>
+<% end %>
