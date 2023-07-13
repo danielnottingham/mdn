@@ -260,6 +260,8 @@ GEM
       rubocop-capybara (~> 2.17)
       rubocop-factory_bot (~> 2.22)
     ruby-progressbar (1.13.0)
+    service_actor (3.7.0)
+      zeitwerk
     shoulda-matchers (5.3.0)
       activesupport (>= 5.2.0)
     simplecov (0.22.0)
@@ -327,6 +329,7 @@ DEPENDENCIES
   rubocop-performance (= 1.18.0)
   rubocop-rails (= 2.19.1)
   rubocop-rspec (= 2.22.0)
+  service_actor (= 3.7.0)
   shoulda-matchers (= 5.3.0)
   simplecov (= 0.22.0)
   sprockets-rails (= 3.4.2)
