@@ -22,5 +22,10 @@ module Mdn
         render component.constantize.new(*args, **kwargs), &block
       end
     end
+
+    def mdn_form_with(**options, &)
+      options.deep_merge!(builder: Mdn::FormBuilder)
+      form_with(**options, &)
+    end
   end
 end
