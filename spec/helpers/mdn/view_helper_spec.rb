@@ -107,6 +107,15 @@ RSpec.describe Mdn::ViewHelper do
     end
   end
 
+  describe "#mdn_text_area" do
+    it "renders Mdn::Form::TextAreaComponent" do
+      helper_result = process_html(mdn_text_area)
+      component_result = render_inline(Mdn::Form::TextAreaComponent.new).to_html
+
+      expect(helper_result).to eq component_result
+    end
+  end
+
   describe "#mdn_text_field" do
     it "renders Mdn::Form::TextFieldComponent" do
       helper_result = process_html(mdn_text_field)

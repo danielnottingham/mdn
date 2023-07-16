@@ -14,6 +14,7 @@ module Mdn
       select: "Mdn::Form::SelectComponent",
       shell: "Mdn::Structure::ShellComponent",
       sidebar: "Mdn::Structure::SidebarComponent",
+      text_area: "Mdn::Form::TextAreaComponent",
       text_field: "Mdn::Form::TextFieldComponent"
     }.freeze
 
