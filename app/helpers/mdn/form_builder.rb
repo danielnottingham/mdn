@@ -19,6 +19,18 @@ module Mdn
       end
     end
 
+    def mdn_date_field(attribute, **args, &)
+      render_text_field_of("date", attribute, **args, &)
+    end
+
+    def mdn_datetime_field(attribute, **args, &)
+      render_text_field_of("datetime-local", attribute, **datetime_options(attribute), **args, &)
+    end
+
+    def mdn_email_field(attribute, **args, &)
+      render_text_field_of("email", attribute, **args, &)
+    end
+
     def mdn_file_field(attribute, **args)
       self.multipart = true
       render Mdn::Form::FileFieldComponent.new(**html_options(attribute), **args) do |input|
@@ -32,6 +44,10 @@ module Mdn
         yield input if block_given?
         content
       end
+    end
+
+    def mdn_password_field(attribute, **args, &)
+      render_text_field_of("password", attribute, **args, &)
     end
 
     def mdn_select(attribute, **args)
@@ -73,6 +89,10 @@ module Mdn
 
     def checkbox_options(attribute)
       html_options(attribute).transform_keys({ value: :checked })
+    end
+
+    def datetime_options(attribute)
+      html_options(attribute).merge(value: object.send(attribute)&.strftime("%Y-%m-%dT%H:%M"))
     end
 
     def html_options(attribute)
