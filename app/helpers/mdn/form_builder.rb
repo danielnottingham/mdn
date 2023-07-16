@@ -45,6 +45,12 @@ module Mdn
       render(Mdn::Action::ButtonComponent.new(builder: :button_tag, **args)) { content || submit_text }
     end
 
+    def mdn_text_area(attribute, **args)
+      render Mdn::Form::TextAreaComponent.new(**html_options(attribute), **args) do |input|
+        yield input if block_given?
+      end
+    end
+
     def mdn_text_field(attribute, **args, &)
       render_text_field_of("text", attribute, **args, &)
     end

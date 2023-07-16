@@ -80,6 +80,15 @@ RSpec.describe Mdn::FormBuilder do
     end
   end
 
+  describe "#mdn_text_area" do
+    it "render" do
+      post = Post.new
+      builder = described_class.new(:post, post, self, {})
+
+      expect(builder.mdn_text_area(:name)).to be_present
+    end
+  end
+
   describe "#mdn_text_field" do
     it "render" do
       post = Post.new
