@@ -9,6 +9,7 @@ RSpec.describe Mdn::FormBuilder do
       t.string(:bg_color)
       t.string(:name)
       t.string(:status)
+      t.date(:published_on)
     end
 
     post_class = Class.new(ApplicationRecord)
@@ -37,6 +38,33 @@ RSpec.describe Mdn::FormBuilder do
     end
   end
 
+  describe "#mdn_date_field" do
+    it "render" do
+      post = Post.new
+      builder = described_class.new(:post, post, self, {})
+
+      expect(builder.mdn_date_field(:published_on)).to be_present
+    end
+  end
+
+  describe "#mdn_datetime_field" do
+    it "render" do
+      post = Post.new
+      builder = described_class.new(:post, post, self, {})
+
+      expect(builder.mdn_datetime_field(:published_on)).to be_present
+    end
+  end
+
+  describe "#mdn_email_field" do
+    it "render" do
+      post = Post.new
+      builder = described_class.new(:post, post, self, {})
+
+      expect(builder.mdn_email_field(:name)).to be_present
+    end
+  end
+
   describe "#mdn_file_field" do
     it "render" do
       post = Post.new
@@ -52,6 +80,15 @@ RSpec.describe Mdn::FormBuilder do
       builder = described_class.new(:post, post, self, {})
 
       expect(builder.mdn_label(:name, "Label")).to be_present
+    end
+  end
+
+  describe "#mdn_password_field" do
+    it "render" do
+      post = Post.new
+      builder = described_class.new(:post, post, self, {})
+
+      expect(builder.mdn_password_field(:name)).to be_present
     end
   end
 
