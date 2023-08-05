@@ -11,6 +11,7 @@ module Mdn
       label: "Mdn::Form::LabelComponent",
       main_content: "Mdn::Structure::MainContentComponent",
       navbar: "Mdn::Structure::NavbarComponent",
+      radio: "Mdn::Form::RadioComponent",
       select: "Mdn::Form::SelectComponent",
       shell: "Mdn::Structure::ShellComponent",
       sidebar: "Mdn::Structure::SidebarComponent",
