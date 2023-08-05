@@ -79,6 +79,15 @@ RSpec.describe Mdn::ViewHelper do
     end
   end
 
+  describe "#mdn_radio" do
+    it "renders Mdn::Form::RadioComponent" do
+      helper_result = process_html(mdn_radio(disabled: true) { "Radio" })
+      component_result = render_inline(Mdn::Form::RadioComponent.new(disabled: true)) { "Radio" }.to_html
+
+      expect(helper_result).to eq component_result
+    end
+  end
+
   describe "#mdn_select" do
     it "renders Mdn::Form::SelectComponent" do
       options = { red: "Red", green: "Green", blue: "Blue" }

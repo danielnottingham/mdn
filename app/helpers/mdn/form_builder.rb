@@ -50,6 +50,12 @@ module Mdn
       render_text_field_of("password", attribute, **args, &)
     end
 
+    def mdn_radio_button(attribute, tag_value, content = nil, **)
+      render(Mdn::Form::RadioComponent.new(**radio_button_options(attribute, tag_value), **)) do
+        content
+      end
+    end
+
     def mdn_select(attribute, **args)
       options = html_options(attribute)
       render Mdn::Form::SelectComponent.new(selected: options[:value], **options, **args) do |slot|
@@ -105,6 +111,23 @@ module Mdn
 
     def name(attribute)
       "#{object_name}[#{attribute}]"
+    end
+
+    def radio_button_options(attribute, tag_value)
+      {
+        name: name(attribute),
+        id: radio_id(attribute, tag_value),
+        value: tag_value,
+        checked: object.send(attribute) == tag_value
+      }
+    end
+
+    def radio_id(attribute, tag_value)
+      "#{id(attribute)}_#{sanitize_value(tag_value)}"
+    end
+
+    def sanitize_value(value)
+      value.to_s.gsub(/[\s.]/, "_").gsub(/[^-[[:word:]]]/, "").downcase
     end
 
     def id(attribute)
