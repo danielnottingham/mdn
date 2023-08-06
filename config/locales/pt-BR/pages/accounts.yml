@@ -1,0 +1,6 @@
+pt-BR:
+  accounts:
+    new_page:
+      navbar_title: MDN
+      menu_item_accounts: Contas
+      header_title: Nova conta

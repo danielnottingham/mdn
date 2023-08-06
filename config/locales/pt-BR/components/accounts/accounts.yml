@@ -1,0 +1,4 @@
+pt-BR:
+  accounts:
+    form_component:
+      submit_button: Criar conta

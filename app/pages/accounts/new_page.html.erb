@@ -1,0 +1,17 @@
+<%= mdn_shell do |shell| %>
+  <% shell.with_navbar do %>
+    <%= mdn_navbar(title: t(".navbar_title")) %>
+  <% end %>
+
+  <% shell.with_sidebar do %>
+    <%= mdn_sidebar do |side| %>
+      <% side.with_item(href: "#", icon: :wallet) { t(".menu_item_accounts") } %>
+    <% end %>
+  <% end %>
+
+  <% shell.with_main_content do %>
+    <%= mdn_main_content(title: t(".header_title")) do %>
+      <%= render Accounts::FormComponent.new(account: account, url: "#") %>
+    <% end %>
+  <% end %>
+<% end %>
