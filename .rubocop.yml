@@ -114,3 +114,5 @@ Style/UnlessLogicalOperators:
 RSpec/MultipleExpectations:
   Exclude:
     - spec/requests/**/*
+    - spec/operations/**/*
+    - spec/system/**/*
