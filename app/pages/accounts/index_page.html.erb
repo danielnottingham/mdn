@@ -11,10 +11,10 @@
 
   <% shell.with_main_content do %>
     <%= mdn_main_content(title: t(".header_title")) do %>
-      <%= render Accounts::FormComponent.new(account: account, url: accounts_path) %>
+      <%= render Accounts::ListComponent.new(accounts: accounts) %>
 
       <div class="mt-4">
-        <%= mdn_button(builder: :link_to, href: accounts_path, color: :light) { t(".back_to_list") } %>
+        <%= mdn_button(builder: :link_to, href: new_account_path) { t(".new_account") } %>
       </div>
     <% end %>
   <% end %>

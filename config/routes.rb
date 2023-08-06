@@ -3,5 +3,6 @@
 Rails.application.routes.draw do
   mount Lookbook::Engine, at: "lookbook"
 
-  resources :accounts, only: :new
+  root "accounts#index"
+  resources :accounts, only: %i[index new create]
 end
