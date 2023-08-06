@@ -50,8 +50,8 @@ module Mdn
       render_text_field_of("password", attribute, **args, &)
     end
 
-    def mdn_radio_button(attribute, tag_value, content = nil, **)
-      render(Mdn::Form::RadioComponent.new(**radio_button_options(attribute, tag_value), **)) do
+    def mdn_radio_button(attribute, tag_value, content = nil, **args)
+      render(Mdn::Form::RadioComponent.new(**radio_button_options(attribute, tag_value), **args)) do
         content
       end
     end
@@ -91,6 +91,10 @@ module Mdn
 
     def label_options(attribute)
       html_options(attribute).transform_keys({ id: :for })
+    end
+
+    def label_content(attribute)
+      ActionView::Helpers::Tags::Translator.new(object, object_name.to_s, attribute, scope: "helpers.label").translate
     end
 
     def checkbox_options(attribute)
