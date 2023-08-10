@@ -11,10 +11,10 @@ module Translatable
     end
   end
 
-  def translate(key, **options)
+  def translate(key, **)
     key = "#{self.class.translation_path}#{key}" if key.start_with?(".")
 
-    ActiveSupport::HtmlSafeTranslation.translate(key, **options)
+    ActiveSupport::HtmlSafeTranslation.translate(key, **)
   end
   alias t translate
 end

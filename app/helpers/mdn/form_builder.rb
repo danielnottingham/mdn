@@ -6,84 +6,84 @@ module Mdn
 
     delegate :render, to: :template
 
-    def mdn_checkbox(attribute, content = nil, **args)
+    def mdn_checkbox(attribute, content = nil, **)
       content ||= label_content(attribute)
-      render(Mdn::Form::CheckboxComponent.new(**checkbox_options(attribute), **args)) { content }
+      render(Mdn::Form::CheckboxComponent.new(**checkbox_options(attribute), **)) { content }
     end
 
-    def mdn_color_field(attribute, **args)
+    def mdn_color_field(attribute, **)
       render Mdn::Form::ColorFieldComponent.new(
-        **html_options(attribute), **args
+        **html_options(attribute), **
       ) do |input|
         yield input if block_given?
       end
     end
 
-    def mdn_date_field(attribute, **args, &)
-      render_text_field_of("date", attribute, **args, &)
+    def mdn_date_field(attribute, **, &)
+      render_text_field_of("date", attribute, **, &)
     end
 
-    def mdn_datetime_field(attribute, **args, &)
-      render_text_field_of("datetime-local", attribute, **datetime_options(attribute), **args, &)
+    def mdn_datetime_field(attribute, **, &)
+      render_text_field_of("datetime-local", attribute, **datetime_options(attribute), **, &)
     end
 
-    def mdn_email_field(attribute, **args, &)
-      render_text_field_of("email", attribute, **args, &)
+    def mdn_email_field(attribute, **, &)
+      render_text_field_of("email", attribute, **, &)
     end
 
-    def mdn_file_field(attribute, **args)
+    def mdn_file_field(attribute, **)
       self.multipart = true
-      render Mdn::Form::FileFieldComponent.new(**html_options(attribute), **args) do |input|
+      render Mdn::Form::FileFieldComponent.new(**html_options(attribute), **) do |input|
         yield input if block_given?
       end
     end
 
-    def mdn_label(attribute, content = nil, **args)
+    def mdn_label(attribute, content = nil, **)
       content ||= label_content(attribute)
-      render Mdn::Form::LabelComponent.new(**label_options(attribute), **args) do |input|
+      render Mdn::Form::LabelComponent.new(**label_options(attribute), **) do |input|
         yield input if block_given?
         content
       end
     end
 
-    def mdn_password_field(attribute, **args, &)
-      render_text_field_of("password", attribute, **args, &)
+    def mdn_password_field(attribute, **, &)
+      render_text_field_of("password", attribute, **, &)
     end
 
-    def mdn_radio_button(attribute, tag_value, content = nil, **args)
-      render(Mdn::Form::RadioComponent.new(**radio_button_options(attribute, tag_value), **args)) do
+    def mdn_radio_button(attribute, tag_value, content = nil, **)
+      render(Mdn::Form::RadioComponent.new(**radio_button_options(attribute, tag_value), **)) do
         content
       end
     end
 
-    def mdn_select(attribute, **args)
+    def mdn_select(attribute, **)
       options = html_options(attribute)
-      render Mdn::Form::SelectComponent.new(selected: options[:value], **options, **args) do |slot|
+      render Mdn::Form::SelectComponent.new(selected: options[:value], **options, **) do |slot|
         yield slot if block_given?
       end
     end
 
-    def mdn_submit(content = nil, **args)
-      render(Mdn::Action::ButtonComponent.new(builder: :button_tag, **args)) { content || submit_text }
+    def mdn_submit(content = nil, **)
+      render(Mdn::Action::ButtonComponent.new(builder: :button_tag, **)) { content || submit_text }
     end
 
-    def mdn_text_area(attribute, **args)
-      render Mdn::Form::TextAreaComponent.new(**html_options(attribute), **args) do |input|
+    def mdn_text_area(attribute, **)
+      render Mdn::Form::TextAreaComponent.new(**html_options(attribute), **) do |input|
         yield input if block_given?
       end
     end
 
-    def mdn_text_field(attribute, **args, &)
-      render_text_field_of("text", attribute, **args, &)
+    def mdn_text_field(attribute, **, &)
+      render_text_field_of("text", attribute, **, &)
     end
 
     private
 
-    def render_text_field_of(type, attribute, **args)
+    def render_text_field_of(type, attribute, **)
       render Mdn::Form::TextFieldComponent.new(
         type: type,
         **html_options(attribute),
-        **args
+        **
       ) do |input|
         yield input if block_given?
       end
