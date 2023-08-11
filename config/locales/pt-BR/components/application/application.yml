@@ -1,0 +1,6 @@
+pt-BR:
+  application:
+    error_summary_component:
+      errors_title:
+        one: "Há 1 erro nesta página:"
+        other: "Há %{count} erros nesta página:"
