@@ -36,7 +36,7 @@ RSpec.describe Accounts::Create, type: :operation do
       it "returns invalid account" do
         result = described_class.result(attributes: { title: nil })
 
-        expect(result.account).to be_invalid
+        expect(result.account).not_to be_valid
       end
     end
   end

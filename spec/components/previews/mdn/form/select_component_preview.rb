@@ -9,9 +9,9 @@ module Mdn
         selected: nil,
         prompt: "Select an option",
         options: DEFAULT_OPTIONS,
-        **html_options
+        **
       )
-        mdn_select(selected:, prompt:, options:, **html_options)
+        mdn_select(selected:, prompt:, options:, **)
       end
 
       # @!group Default
