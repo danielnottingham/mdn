@@ -1,0 +1,9 @@
+pt-BR:
+  activerecord:
+    models:
+      account: Conta
+    attributes:
+      account:
+        title: Título
+        balance_cents: Saldo
+        color: Cor
