@@ -15,16 +15,19 @@ module Mdn
 
       ICON_TYPE = {
         calendar: :solid,
+        check: :solid,
         cog_6_tooth: :solid,
         facebook: :solid,
         home: :solid,
+        information_circle: :solid,
         bolt: :solid,
         plus: :solid,
         trash: :solid,
         twitter: :solid,
         user: :solid,
         wallet: :solid,
-        whatsapp: :solid
+        whatsapp: :solid,
+        x: :solid
       }.freeze
 
       def initialize(name:, color: :current_color, **html_options)
@@ -44,11 +47,7 @@ module Mdn
       end
 
       def color_classes
-        if ICON_TYPE[name] == :outline
-          OUTLINE_COLORS_CLASSES[color]
-        else
-          SOLID_COLORS_CLASSES[color]
-        end
+        SOLID_COLORS_CLASSES[color]
       end
 
       def options

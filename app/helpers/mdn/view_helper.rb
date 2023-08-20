@@ -16,7 +16,8 @@ module Mdn
       shell: "Mdn::Structure::ShellComponent",
       sidebar: "Mdn::Structure::SidebarComponent",
       text_area: "Mdn::Form::TextAreaComponent",
-      text_field: "Mdn::Form::TextFieldComponent"
+      text_field: "Mdn::Form::TextFieldComponent",
+      toast: "Mdn::Feedback::ToastComponent"
     }.freeze
 
     MDN_HELPERS.each do |name, component|
