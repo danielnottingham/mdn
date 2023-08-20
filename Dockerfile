@@ -1,5 +1,5 @@
 # Use a imagem base do Ruby
-FROM ruby:3.2.1-alpine
+FROM ruby:3.2.2-alpine
 
 # Define o diretório de trabalho no contêiner
 WORKDIR /app
