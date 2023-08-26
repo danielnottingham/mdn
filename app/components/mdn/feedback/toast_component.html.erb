@@ -1,0 +1,10 @@
+<%= content_tag :div, class: toast_wrapper_classes, **html_options do %>
+  <%= content_tag :div, class: toast_classes do %>
+    <%= content_tag :div, class: icon_classes do %>
+      <%= mdn_icon(name: icon_type_name) %>
+    <% end %>
+    <%= content_tag :div, class: content_classes do %>
+      <%= content %>
+    <% end %>
+  <% end %>
+<% end %>
