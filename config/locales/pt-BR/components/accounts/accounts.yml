@@ -1,7 +1,8 @@
 pt-BR:
   accounts:
     form_component:
-      submit_button: Criar conta
+      new_account_button: Criar conta
+      edit_account_button: Atualizar conta
     list_component:
       title: Título
       balance_cents: Saldo

@@ -1,0 +1,21 @@
+<%= mdn_shell do |shell| %>
+  <% shell.with_navbar do %>
+    <%= mdn_navbar(title: t(".navbar_title")) %>
+  <% end %>
+
+  <% shell.with_sidebar do %>
+    <%= mdn_sidebar do |side| %>
+      <% side.with_item(href: accounts_path, icon: :wallet) { t(".menu_item_accounts") } %>
+    <% end %>
+  <% end %>
+
+  <% shell.with_main_content do %>
+    <%= mdn_main_content(title: t(".header_title")) do %>
+      <%= render Accounts::FormComponent.new(account: account, url: account_path(account.id)) %>
+
+      <div class="mt-4">
+        <%= mdn_button(builder: :link_to, href: accounts_path, color: :light) { t(".back_to_list") } %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>

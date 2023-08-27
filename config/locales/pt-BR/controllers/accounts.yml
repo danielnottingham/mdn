@@ -2,3 +2,5 @@ pt-BR:
   accounts:
     create:
       success: A conta foi criada com sucesso
+    update:
+      success: A conta foi atualizada com sucesso
