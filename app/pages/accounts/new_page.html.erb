@@ -5,7 +5,7 @@
 
   <% shell.with_sidebar do %>
     <%= mdn_sidebar do |side| %>
-      <% side.with_item(href: "#", icon: :wallet) { t(".menu_item_accounts") } %>
+      <% side.with_item(href: accounts_path, icon: :wallet) { t(".menu_item_accounts") } %>
     <% end %>
   <% end %>
 
