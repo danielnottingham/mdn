@@ -14,5 +14,7 @@
 
   <body>
     <%= yield %>
+
+    <%= render Application::ToastComponent.new(flash: flash) %>
   </body>
 </html>

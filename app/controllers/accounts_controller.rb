@@ -15,7 +15,7 @@ class AccountsController < ApplicationController
     result = Accounts::Create.result(attributes: account_params)
 
     if result.success?
-      redirect_to accounts_path
+      redirect_to accounts_path, success: t(".success")
     else
       render Accounts::NewPage.new(account: result.account), status: :unprocessable_entity
     end

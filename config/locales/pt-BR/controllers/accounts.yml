@@ -1,0 +1,4 @@
+pt-BR:
+  accounts:
+    create:
+      success: A conta foi criada com sucesso
