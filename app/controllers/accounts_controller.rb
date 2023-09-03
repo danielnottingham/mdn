@@ -35,6 +35,16 @@ class AccountsController < ApplicationController
     end
   end
 
+  def destroy
+    result = Accounts::Destroy.result(id: params[:id])
+
+    if result.success?
+      redirect_to accounts_path, success: t(".success")
+    else
+      redirect_to edit_account_path(result.account), error: t(".error")
+    end
+  end
+
   private
 
   def account

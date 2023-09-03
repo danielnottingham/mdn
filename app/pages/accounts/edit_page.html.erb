@@ -14,7 +14,8 @@
       <%= render Accounts::FormComponent.new(account: account, url: account_path(account.id)) %>
 
       <div class="mt-4">
-        <%= mdn_button(builder: :link_to, href: accounts_path, color: :light) { t(".back_to_list") } %>
+        <%= mdn_button(href: accounts_path, color: :light) { t(".back_to_list") } %>
+        <%= mdn_button(builder: :button_to, href: account_path(account), color: :red, method: :delete, data: { turbo: false, turbo_confirm: t(".destroy_confirm") }) { t(".destroy") } %>
       </div>
     <% end %>
   <% end %>

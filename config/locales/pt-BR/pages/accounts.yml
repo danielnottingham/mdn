@@ -15,3 +15,5 @@ pt-BR:
       menu_item_accounts: Contas
       header_title: Editar conta
       back_to_list: Voltar
+      destroy: Excluir conta
+      destroy_confirm: Todas as transações desta conta serão excluídas. Tem certeza?
