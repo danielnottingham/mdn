@@ -11,6 +11,9 @@
         <th scope="col" class="px-6 py-3">
           <%= t(".color") %>
         </th>
+        <th scope="col" class="px-6 py-3">
+          <%= t(".actions") %>
+        </th>
       </tr>
     </thead>
       <tbody>
@@ -24,6 +27,9 @@
             </td>
             <td class="px-6 py-4">
               <%= account.color %>
+            </td>
+            <td class="px-6 py-4">
+              <%= mdn_button(href: edit_account_path(account), color: :slate) { t(".edit") } %>
             </td>
           </tr>
         <% end %>

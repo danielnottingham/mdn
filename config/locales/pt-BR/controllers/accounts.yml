@@ -4,3 +4,6 @@ pt-BR:
       success: A conta foi criada com sucesso
     update:
       success: A conta foi atualizada com sucesso
+    destroy:
+      success: A conta foi excluída com sucesso
+      error: A conta não pôde ser excluída
