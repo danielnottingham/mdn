@@ -27,6 +27,7 @@ gem "view_component", "3.5.0"
 
 group :development, :test do
   gem "debug", "1.8.0", platforms: %i[mri mingw x64_mingw]
+  gem "dotenv-rails", "2.8.1"
   gem "factory_bot_rails", "6.2.0"
 end
 

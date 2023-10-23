@@ -113,6 +113,10 @@ GEM
       reline (>= 0.3.1)
     diff-lcs (1.5.0)
     docile (1.4.0)
+    dotenv (2.8.1)
+    dotenv-rails (2.8.1)
+      dotenv (= 2.8.1)
+      railties (>= 3.2)
     drb (2.1.1)
       ruby2_keywords
     erb_lint (0.4.0)
@@ -344,6 +348,7 @@ DEPENDENCIES
   capybara (= 3.39.2)
   cssbundling-rails (= 1.2.0)
   debug (= 1.8.0)
+  dotenv-rails (= 2.8.1)
   erb_lint (= 0.4.0)
   factory_bot_rails (= 6.2.0)
   jsbundling-rails (= 1.1.2)
