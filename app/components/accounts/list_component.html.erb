@@ -9,9 +9,6 @@
           <%= t(".balance_cents") %>
         </th>
         <th scope="col" class="px-6 py-3">
-          <%= t(".color") %>
-        </th>
-        <th scope="col" class="px-6 py-3">
           <%= t(".actions") %>
         </th>
       </tr>
@@ -20,13 +17,10 @@
         <% accounts.each do |account| %>
           <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-              <%= account.title %>
+              <span class="text-sm text-white font-medium mr-2 px-2 py-1 rounded" style="background-color: <%= account.color %>"><%= account.title %></span>
             </th>
             <td class="px-6 py-4">
               <%= account.balance_cents %>
-            </td>
-            <td class="px-6 py-4">
-              <%= account.color %>
             </td>
             <td class="px-6 py-4">
               <%= mdn_button(href: edit_account_path(account), color: :slate) { t(".edit") } %>
