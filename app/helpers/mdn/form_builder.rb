@@ -14,9 +14,7 @@ module Mdn
     def mdn_color_field(attribute, **)
       render Mdn::Form::ColorFieldComponent.new(
         **html_options(attribute), **
-      ) do |input|
-        yield input if block_given?
-      end
+      )
     end
 
     def mdn_date_field(attribute, **, &)
@@ -33,15 +31,12 @@ module Mdn
 
     def mdn_file_field(attribute, **)
       self.multipart = true
-      render Mdn::Form::FileFieldComponent.new(**html_options(attribute), **) do |input|
-        yield input if block_given?
-      end
+      render Mdn::Form::FileFieldComponent.new(**html_options(attribute), **)
     end
 
     def mdn_label(attribute, content = nil, **)
       content ||= label_content(attribute)
-      render Mdn::Form::LabelComponent.new(**label_options(attribute), **) do |input|
-        yield input if block_given?
+      render Mdn::Form::LabelComponent.new(**label_options(attribute), **) do
         content
       end
     end
@@ -58,9 +53,7 @@ module Mdn
 
     def mdn_select(attribute, **)
       options = html_options(attribute)
-      render Mdn::Form::SelectComponent.new(selected: options[:value], **options, **) do |slot|
-        yield slot if block_given?
-      end
+      render Mdn::Form::SelectComponent.new(selected: options[:value], **options, **)
     end
 
     def mdn_submit(content = nil, **)
@@ -68,9 +61,7 @@ module Mdn
     end
 
     def mdn_text_area(attribute, **)
-      render Mdn::Form::TextAreaComponent.new(**html_options(attribute), **) do |input|
-        yield input if block_given?
-      end
+      render Mdn::Form::TextAreaComponent.new(**html_options(attribute), **)
     end
 
     def mdn_text_field(attribute, **, &)
@@ -84,9 +75,7 @@ module Mdn
         type: type,
         **html_options(attribute),
         **
-      ) do |input|
-        yield input if block_given?
-      end
+      )
     end
 
     def label_options(attribute)

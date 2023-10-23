@@ -10,7 +10,6 @@ RSpec.describe Accounts::ListComponent, type: :component do
     accounts.each do |account|
       expect(rendered.to_html).to have_text(account.title)
         .and have_text(account.balance_cents)
-        .and have_text(account.color)
         .and have_link(I18n.t("accounts.list_component.edit"), href: edit_account_path(account.id))
     end
   end

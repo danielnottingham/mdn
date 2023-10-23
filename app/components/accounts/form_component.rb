@@ -14,7 +14,7 @@ module Accounts
     def submit_button(form)
       return form.mdn_submit t(".new_account_button") if account.new_record?
 
-      form.mdn_submit t(".edit_account_button")
+      form.mdn_submit t(".update_account_button")
     end
   end
 end
