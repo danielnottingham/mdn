@@ -74,7 +74,7 @@ RSpec.describe ApplicationPage, type: :page do
 
         rendered = render_inline(dummy_page_class.new)
 
-        expect(rendered).to have_selector("b", text: "bold text")
+        expect(rendered).to have_css("b", text: "bold text")
       end
     end
 
@@ -94,7 +94,7 @@ RSpec.describe ApplicationPage, type: :page do
 
         rendered = render_inline(dummy_page_class.new)
 
-        expect(rendered).not_to have_selector("b", text: "bold text")
+        expect(rendered).not_to have_css("b", text: "bold text")
       end
     end
   end
