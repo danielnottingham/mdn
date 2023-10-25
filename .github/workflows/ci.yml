@@ -1,8 +1,9 @@
 name: CI
 on: [push]
+
 jobs:
-  rubocop:
-    name: Rubocop
+  lint:
+    name: Linters
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -13,11 +14,20 @@ jobs:
         with:
           bundler-cache: true
 
-      - name: Lint code
-        run: bundle exec rubocop
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          cache: 'yarn'
+          node-version-file: '.node-version'
 
-  brakeman:
-    name: Brakeman
+      - name: Install Yarn packages
+        run: yarn install --check-files --pure-lockfile
+
+      - name: Lint files
+        run: bin/lint
+
+  scan:
+    name: Security Analysis
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -25,18 +35,17 @@ jobs:
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
 
-      - name: Install brakeman
-        run: gem install brakeman
+      - name: Scan code vulnerabilities
+        run: bin/scan
 
-      - name: Scan code
-        run: brakeman -A -z -q
-
-  rspec:
-    name: RSpec
+  test:
+    name: Test
     needs:
-      - rubocop
-      - brakeman
+      - lint
+      - scan
     runs-on: ubuntu-latest
     env:
       DATABASE_URL: postgres://postgres:example@localhost:5432/mdn_test
@@ -61,7 +70,7 @@ jobs:
       - name: Install postgres client
         run: sudo apt-get install libpq-dev
 
-      - name: Setup node
+      - name: Setup Node
         uses: actions/setup-node@v3
         with:
           cache: 'yarn'
@@ -70,8 +79,13 @@ jobs:
       - name: Install Yarn packages
         run: yarn install --check-files --pure-lockfile
 
+      - name: Compile Assets
+        run: |
+          bin/rails css:build
+          bin/rails javascript:build
+
       - name: Create database structure
-        run: RAILS_ENV=test bundle exec rails db:reset
+        run: RAILS_ENV=test bundle exec rails db:create db:schema:load
 
       - name: Run tests
         run: bundle exec rspec spec --format progress
