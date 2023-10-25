@@ -1,20 +1,9 @@
 #!/usr/bin/env bash
 
+# This script runs lint and scan scripts
 # You can run it with `bin/analyze`
 
 set -e
 
-echo "============================================"
-echo "== Looking for code offenses with Rubocop =="
-echo "============================================"
-bundle exec rubocop
-
-echo "============================================="
-echo "== Looking for code offenses with erb_lint =="
-echo "============================================="
-bundle exec erblint --lint-all
-
-echo "=================================================="
-echo "== Scanning code vulnerabiliities with brakeman =="
-echo "=================================================="
-bundle exec brakeman
+bin/lint
+bin/scan
