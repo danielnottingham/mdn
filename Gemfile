@@ -10,20 +10,15 @@ gem "cssbundling-rails", "1.3.3"
 gem "jsbundling-rails", "1.2.1"
 gem "lookbook", "2.1.1"
 gem "pg", "1.5.4"
+gem "propshaft", "0.8.0"
 gem "puma", "6.4.0"
 gem "rails", "7.1.1"
 gem "redis", "5.0.8"
 gem "service_actor", "3.7.0"
-gem "sprockets-rails", "3.4.2"
 gem "stimulus-rails", "1.3.0"
 gem "turbo-rails", "1.5.0"
 gem "tzinfo-data", "2.0.6", platforms: %i[mingw mswin x64_mingw jruby]
 gem "view_component", "3.6.0"
-
-# gem "kredis"
-# gem "bcrypt", "~> 3.1.7"
-# gem "sassc-rails"
-# gem "image_processing", "~> 1.2"
 
 group :development, :test do
   gem "debug", "1.8.0", platforms: %i[mri mingw x64_mingw]

@@ -12,6 +12,9 @@ module.exports = {
   plugins: [require('flowbite/plugin')],
   theme: {
     extend: {
+      fontFamily: {
+        'primary': ['JetBrains Mono', 'monospace'],
+      },
       keyframes: {
         'fade-in-up': {
           '0%': {
