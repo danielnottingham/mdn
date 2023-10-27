@@ -7,6 +7,7 @@ ruby "3.2.2"
 
 gem "bootsnap", "1.16.0", require: false
 gem "cssbundling-rails", "1.3.3"
+gem "devise", "4.9.3"
 gem "jsbundling-rails", "1.2.1"
 gem "lookbook", "2.1.1"
 gem "pg", "1.5.4"
