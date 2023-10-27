@@ -32,6 +32,10 @@ Layout/FirstMethodArgumentLineBreak:
 Layout/FirstMethodParameterLineBreak:
   Enabled: true
 
+Layout/LineLength:
+  Exclude:
+    - config/initializers/devise.rb
+
 Layout/MultilineArrayBraceLayout:
   EnforcedStyle: new_line
 
