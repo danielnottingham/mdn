@@ -1,11 +1,13 @@
-<span class="font-semibold">
-  <%= error_title %>
-</span>
+<div class="p-6 bg-red-100 border border-solid border-red-100 rounded">
+  <span class="font-semibold">
+    <%= error_title %>
+  </span>
 
-<ul class="list-disc ml-4">
-  <% record.errors.messages.map do |attr, messages| %>
-    <li>
-      <%= "#{record.class.human_attribute_name(attr)} #{messages.to_sentence}" %>
-    </li>
-  <% end %>
-</ul>
+  <ul class="list-disc ml-4">
+    <% record.errors.messages.map do |attr, messages| %>
+      <li>
+        <%= "#{record.class.human_attribute_name(attr)} #{messages.to_sentence}" %>
+      </li>
+    <% end %>
+  </ul>
+</div>
