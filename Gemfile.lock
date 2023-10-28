@@ -388,7 +388,7 @@ DEPENDENCIES
   rubocop-performance (= 1.19.1)
   rubocop-rails (= 2.21.2)
   rubocop-rspec (= 2.24.1)
-  selenium-webdriver (~> 4.14)
+  selenium-webdriver (= 4.14.0)
   service_actor (= 3.7.0)
   shoulda-matchers (= 5.3.0)
   simplecov (= 0.22.0)
