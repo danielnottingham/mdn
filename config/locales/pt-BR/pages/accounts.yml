@@ -1,18 +1,12 @@
 pt-BR:
   accounts:
     index_page:
-      navbar_title: MDN
-      menu_item_accounts: Contas
       header_title: Contas
       new_account: Nova conta
     new_page:
-      navbar_title: MDN
-      menu_item_accounts: Contas
       header_title: Nova conta
       back_to_list: Voltar
     edit_page:
-      navbar_title: MDN
-      menu_item_accounts: Contas
       header_title: Editar conta
       back_to_list: Voltar
       destroy: Excluir conta

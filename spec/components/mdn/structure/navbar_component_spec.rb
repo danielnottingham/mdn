@@ -11,7 +11,7 @@ RSpec.describe Mdn::Structure::NavbarComponent, type: :component do
 
   it "renders navbar with item" do
     rendered = render_inline(described_class.new(title: "Some logo")) do |nav|
-      nav.with_item(href: "/some/link") { "link 1" }
+      nav.with_item(builder: :link_to, href: "/some/link") { "link 1" }
     end
 
     expect(rendered.to_html).to have_link("link 1", href: "/some/link")

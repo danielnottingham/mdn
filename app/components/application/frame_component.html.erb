@@ -1,0 +1,17 @@
+<%= mdn_shell do |shell| %>
+  <% shell.with_navbar do %>
+    <%= mdn_navbar(title: t(".navbar_title")) do |nav| %>
+      <% nav.with_item(builder: :button_to, href: destroy_user_session_path, method: :delete, data: { turbo: false }) { t(".log_out") } %>
+    <% end %>
+  <% end %>
+
+  <% shell.with_sidebar do %>
+    <%= mdn_sidebar do |side| %>
+      <% side.with_item(href: accounts_path, icon: :wallet, active: activate_accounts_menu_item?) { t(".menu_item_accounts") } %>
+    <% end %>
+  <% end %>
+
+  <% shell.with_main_content do %>
+    <%= content %>
+  <% end %>
+<% end %>

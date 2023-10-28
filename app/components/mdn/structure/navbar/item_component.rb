@@ -4,15 +4,26 @@ module Mdn
   module Structure
     module Navbar
       class ItemComponent < ViewComponent::Base
-        attr_reader :href, :icon, :active
+        attr_reader :builder, :href, :icon, :active, :html_options
 
-        def initialize(href:, icon: nil, active: false)
+        def initialize(builder:, href:, icon: nil, active: false, **html_options)
+          @builder = builder
           @href = href
           @icon = icon
           @active = active
+          @html_options = html_options
         end
 
         private
+
+        def menu_builder(*, &)
+          case builder
+          when :button_to
+            button_to(*, &)
+          when :link_to
+            link_to(*, &)
+          end
+        end
 
         def navbar_item_classes
           [base_classes, active_classes]

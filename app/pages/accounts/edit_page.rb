@@ -2,10 +2,11 @@
 
 module Accounts
   class EditPage < ApplicationPage
-    attr_reader :account
+    attr_reader :account, :current_user
 
-    def initialize(account:)
+    def initialize(account:, current_user:)
       @account = account
+      @current_user = current_user
     end
   end
 end
