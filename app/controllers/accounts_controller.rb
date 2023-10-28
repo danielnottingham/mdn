@@ -21,7 +21,7 @@ class AccountsController < ApplicationController
     if result.success?
       redirect_to accounts_path, success: t(".success")
     else
-      render Accounts::NewPage.new(account: result.account), status: :unprocessable_entity
+      render Accounts::NewPage.new(account: result.account, current_user: current_user), status: :unprocessable_entity
     end
   end
 
@@ -31,7 +31,7 @@ class AccountsController < ApplicationController
     if result.success?
       redirect_to accounts_path, success: t(".success")
     else
-      render Accounts::EditPage.new(account: result.account), status: :unprocessable_entity
+      render Accounts::EditPage.new(account: result.account, current_user: current_user), status: :unprocessable_entity
     end
   end
 

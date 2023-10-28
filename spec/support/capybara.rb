@@ -9,7 +9,8 @@ RSpec.configure do |config|
   end
 
   config.before(:each, type: :system) do
-    driven_by(:selenium, using: :headless_chrome, screen_size: [1920, 1080])
+    driven_by(:rack_test)
+    # driven_by(:selenium, using: :headless_chrome, screen_size: [1920, 1080])
     # driven_by(:selenium, using: :headless_firefox, screen_size: [1920, 1080])
   end
 

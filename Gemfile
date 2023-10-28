@@ -36,12 +36,12 @@ group :development do
   gem "rubocop-rails", "2.21.2"
   gem "rubocop-rspec", "2.24.1"
   gem "web-console", "4.2.1"
-  # gem "spring"
 end
 
 group :test do
   gem "capybara", "3.39.2"
   gem "rspec-rails", "6.0.3"
+  gem "selenium-webdriver", "~> 4.14"
   gem "shoulda-matchers", "5.3.0"
   gem "simplecov", "0.22.0", require: false
 end
