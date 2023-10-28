@@ -1,4 +1,4 @@
-<%= link_to href, class: navbar_item_classes do %>
+<%= menu_builder href.to_s, class: navbar_item_classes, **html_options do %>
   <%= mdn_icon(name: icon) if icon %>
   <span><%= content %></span>
 <% end %>

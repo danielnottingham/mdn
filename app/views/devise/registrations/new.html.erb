@@ -10,7 +10,7 @@
           <%= t(".page_title") %>
         </h1>
 
-        <%= mdn_form_with(model: resource, as: resource_name, url: registration_path(resource_name), class: "space-y-4 md:space-y-6") do |f| %>
+        <%= mdn_form_with(model: resource, as: resource_name, url: registration_path(resource_name), class: "space-y-4 md:space-y-6", data: { turbo: false }) do |f| %>
           <%= render Application::ErrorSummaryComponent.new(record: resource) %>
           <div class="field">
             <%= f.mdn_label :email, t(".email") %>

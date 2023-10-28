@@ -1,22 +1,10 @@
-<%= mdn_shell do |shell| %>
-  <% shell.with_navbar do %>
-    <%= mdn_navbar(title: t(".navbar_title")) %>
-  <% end %>
+<%= render Application::FrameComponent.new(current_user: current_user, current_controller: controller) do %>
+  <%= mdn_main_content(title: t(".header_title")) do %>
+    <%= render Accounts::FormComponent.new(account: account, url: account_path(account.id)) %>
 
-  <% shell.with_sidebar do %>
-    <%= mdn_sidebar do |side| %>
-      <% side.with_item(href: accounts_path, icon: :wallet) { t(".menu_item_accounts") } %>
-    <% end %>
-  <% end %>
-
-  <% shell.with_main_content do %>
-    <%= mdn_main_content(title: t(".header_title")) do %>
-      <%= render Accounts::FormComponent.new(account: account, url: account_path(account.id)) %>
-
-      <div class="mt-4">
-        <%= mdn_button(href: accounts_path, color: :light) { t(".back_to_list") } %>
-        <%= mdn_button(builder: :button_to, href: account_path(account), color: :red, method: :delete, data: { turbo: false, turbo_confirm: t(".destroy_confirm") }) { t(".destroy") } %>
-      </div>
-    <% end %>
+    <div class="mt-4 flex gap-2">
+      <%= mdn_button(href: accounts_path, color: :light) { t(".back_to_list") } %>
+      <%= mdn_button(builder: :button_to, href: account_path(account), color: :red, method: :delete, data: { turbo: false, turbo_confirm: t(".destroy_confirm") }) { t(".destroy") } %>
+    </div>
   <% end %>
 <% end %>

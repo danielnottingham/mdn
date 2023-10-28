@@ -4,3 +4,7 @@ pt-BR:
       errors_title:
         one: "Há 1 erro nesta página:"
         other: "Há %{count} erros nesta página:"
+    frame_component:
+      navbar_title: MDN
+      log_out: Sair
+      menu_item_accounts: Contas

@@ -4,15 +4,15 @@ class AccountsController < ApplicationController
   def index
     result = Accounts::List.result(scope: Account.all)
 
-    render Accounts::IndexPage.new(accounts: result.accounts)
+    render Accounts::IndexPage.new(accounts: result.accounts, current_user: current_user)
   end
 
   def new
-    render Accounts::NewPage.new(account: Account.new)
+    render Accounts::NewPage.new(account: Account.new, current_user: current_user)
   end
 
   def edit
-    render Accounts::EditPage.new(account: account)
+    render Accounts::EditPage.new(account: account, current_user: current_user)
   end
 
   def create
