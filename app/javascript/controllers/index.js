@@ -5,4 +5,7 @@
 import { application } from './application'
 
 import HelloController from './hello_controller'
+
+import MoneyFieldController from './money_field_controller'
 application.register('hello', HelloController)
+application.register('money-field', MoneyFieldController)

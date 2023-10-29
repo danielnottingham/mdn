@@ -704,6 +704,11 @@ run-parallel@^1.1.9:
   dependencies:
     queue-microtask "^1.2.2"
 
+simple-mask-money@^4.0.6:
+  version "4.0.6"
+  resolved "https://registry.yarnpkg.com/simple-mask-money/-/simple-mask-money-4.0.6.tgz#9bf629e3643b09861413b77cbd5c9df1ffd98ddf"
+  integrity sha512-nZcUouts7Euv8rwxtgVcS1t0XnqbD1EDxeZQrRw1i3qYzcoL2QxvYYNe2ENlhthMGm9bRYpE/w/6J6PBSCwbnQ==
+
 source-map-js@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/source-map-js/-/source-map-js-1.0.2.tgz#adbc361d9c62df380125e7f161f71c826f1e490c"

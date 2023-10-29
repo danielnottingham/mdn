@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_10_27_152229) do
+ActiveRecord::Schema[7.1].define(version: 2023_10_29_135423) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_27_152229) do
     t.string "color", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "balance_currency", default: "BRL", null: false
     t.index ["title"], name: "index_accounts_on_title", unique: true
   end
 

@@ -20,7 +20,7 @@
               <span class="text-sm text-white font-medium mr-2 px-2 py-1 rounded" style="background-color: <%= account.color %>"><%= account.title %></span>
             </th>
             <td class="px-6 py-4">
-              <%= account.balance_cents %>
+              <%= account.balance.format %>
             </td>
             <td class="px-6 py-4">
               <%= mdn_button(href: edit_account_path(account), color: :slate) { t(".edit") } %>
