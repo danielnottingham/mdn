@@ -6,6 +6,7 @@ RSpec.describe Account do
   describe "validations" do
     it { is_expected.to validate_presence_of(:title) }
     it { is_expected.to validate_presence_of(:balance_cents) }
+    it { is_expected.to validate_presence_of(:balance_currency) }
     it { is_expected.to validate_presence_of(:color) }
 
     it do
@@ -21,5 +22,13 @@ RSpec.describe Account do
     it { is_expected.not_to allow_value("#ff00aaff").for(:color) }
     it { is_expected.not_to allow_value("#ff00zz").for(:color) }
     it { is_expected.not_to allow_value("random value").for(:color) }
+  end
+
+  describe "monetization" do
+    it "monetizes balance attributes" do
+      account = described_class.new(balance_cents: 10, balance_currency: "USD")
+
+      expect(account.balance).to eq Money.new(10, "USD")
+    end
   end
 end
