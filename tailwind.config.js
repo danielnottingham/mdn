@@ -13,7 +13,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'primary': ['JetBrains Mono', 'monospace'],
+        primary: ['JetBrains Mono', 'monospace']
       },
       keyframes: {
         'fade-in-up': {
