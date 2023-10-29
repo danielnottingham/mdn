@@ -41,6 +41,10 @@ module Mdn
       end
     end
 
+    def mdn_money_field(attribute, **, &)
+      mdn_text_field(attribute, data: { controller: "money-field" }, **, &)
+    end
+
     def mdn_password_field(attribute, **, &)
       render_text_field_of("password", attribute, **, &)
     end
