@@ -44,8 +44,9 @@ RSpec.describe "Accounts" do
   describe "GET #edit" do
     context "when user is logged in" do
       it "returns a successful response" do
-        sign_in
-        account = create(:account)
+        user = create(:user)
+        sign_in(user)
+        account = create(:account, user: user)
         get edit_account_path(account)
 
         expect(response).to have_http_status :ok

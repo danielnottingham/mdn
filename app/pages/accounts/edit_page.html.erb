@@ -4,7 +4,10 @@
 
     <div class="mt-4 flex gap-2">
       <%= mdn_button(href: accounts_path, color: :light) { t(".back_to_list") } %>
-      <%= mdn_button(builder: :button_to, href: account_path(account), color: :red, method: :delete, data: { turbo: false, turbo_confirm: t(".destroy_confirm") }) { t(".destroy") } %>
+
+      <%= mdn_button(builder: :button_to, href: account_path(account), color: :red, method: :delete, data: { turbo: false, controller: "confirm", confirm_message_value: t(".destroy_confirm") }) do %>
+        <%= t(".destroy") %>
+      <% end %>
     </div>
   <% end %>
 <% end %>

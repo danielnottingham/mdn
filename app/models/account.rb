@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
 class Account < ApplicationRecord
+  belongs_to :user
+
   validates :title, presence: true
   validates :balance_cents, presence: true
   validates :balance_currency, presence: true
   validates :color, presence: true
 
-  validates :title, uniqueness: true
+  validates :title, uniqueness: { scope: :user_id }
 
   validates :title, length: { maximum: 50 }
 
