@@ -4,7 +4,8 @@ require "rails_helper"
 
 RSpec.describe Accounts::ListComponent, type: :component do
   it "renders table accounts with title, balance_cents and color" do
-    accounts = create_list(:account, 3)
+    user = create(:user)
+    accounts = create_list(:account, 3, user: user)
     rendered = render_inline(described_class.new(accounts: accounts))
 
     accounts.each do |account|

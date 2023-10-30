@@ -3,6 +3,10 @@
 require "rails_helper"
 
 RSpec.describe Account do
+  describe "associations" do
+    it { is_expected.to belong_to(:user) }
+  end
+
   describe "validations" do
     it { is_expected.to validate_presence_of(:title) }
     it { is_expected.to validate_presence_of(:balance_cents) }
@@ -11,7 +15,7 @@ RSpec.describe Account do
 
     it do
       account = create(:account)
-      expect(account).to validate_uniqueness_of(:title)
+      expect(account).to validate_uniqueness_of(:title).scoped_to(:user_id)
     end
 
     it { is_expected.to validate_length_of(:title).is_at_most(50) }

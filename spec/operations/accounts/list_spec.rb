@@ -4,9 +4,10 @@ require "rails_helper"
 
 RSpec.describe Accounts::List, type: :operation do
   it "returns accounts ordered by creation date DESC" do
-    nubank_account = create(:account, created_at: Time.zone.yesterday)
-    cora_account = create(:account, created_at: Time.zone.tomorrow)
-    inter_account = create(:account, created_at: Time.zone.today)
+    user = create(:user)
+    nubank_account = create(:account, created_at: Time.zone.yesterday, user: user)
+    cora_account = create(:account, created_at: Time.zone.tomorrow, user: user)
+    inter_account = create(:account, created_at: Time.zone.today, user: user)
 
     result = described_class.result
 

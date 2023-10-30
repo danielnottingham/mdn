@@ -52,6 +52,6 @@ class AccountsController < ApplicationController
   end
 
   def account_params
-    params.require(:account).permit(:title, :balance_cents, :color).to_h
+    params.require(:account).permit(:title, :balance_cents, :color).to_h.merge(user_id: current_user.id)
   end
 end
