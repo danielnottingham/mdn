@@ -14,6 +14,7 @@ module Mdn
       }.freeze
 
       ICON_TYPE = {
+        arrow_left: :solid,
         calendar: :solid,
         check: :solid,
         cog_6_tooth: :solid,
@@ -21,6 +22,7 @@ module Mdn
         home: :solid,
         information_circle: :solid,
         bolt: :solid,
+        pencil_square: :solid,
         plus: :solid,
         trash: :solid,
         twitter: :solid,

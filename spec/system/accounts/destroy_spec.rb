@@ -12,7 +12,7 @@ RSpec.describe "Account destroy" do
       visit accounts_path
       click_link href: edit_account_path(account)
 
-      expect(page).to have_css("h2", text: I18n.t("accounts.edit_page.header_title"))
+      expect(page).to have_css("h2", text: account.title)
 
       click_button(I18n.t("accounts.edit_page.destroy"))
       page.accept_alert(text: I18n.t("accounts.edit_page.destroy_confirm"))
@@ -37,7 +37,7 @@ RSpec.describe "Account destroy" do
       click_button(I18n.t("accounts.edit_page.destroy"))
       page.accept_alert(text: I18n.t("accounts.edit_page.destroy_confirm"))
 
-      expect(page).to have_css("h2", text: I18n.t("accounts.edit_page.header_title"))
+      expect(page).to have_css("h2", text: account.title)
       expect(page).to have_text(I18n.t("accounts.destroy.error"))
     end
   end
