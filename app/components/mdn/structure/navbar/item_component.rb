@@ -30,7 +30,7 @@ module Mdn
         end
 
         def base_classes
-          "flex items-center p-2 mx-2 text-base font-medium text-indigo-500 hover:bg-indigo-100 lg:order-2"
+          "flex items-center p-2 mx-2 text-base font-medium rounded text-indigo-500 hover:bg-indigo-100 lg:order-2"
         end
 
         def active_classes

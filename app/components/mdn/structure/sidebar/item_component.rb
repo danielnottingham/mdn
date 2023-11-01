@@ -15,7 +15,7 @@ module Mdn
         private
 
         def sidebar_item_classes
-          ["flex items-center p-2 text-base font-medium text-indigo-500 hover:bg-indigo-200", active_classes]
+          ["flex items-center p-2 text-base font-medium rounded text-indigo-500 hover:bg-indigo-200", active_classes]
         end
 
         def active_classes

@@ -14,7 +14,7 @@ module Mdn
       }.freeze
 
       SIZES = {
-        xs: "px-3 py-2 text-xs",
+        xs: "px-1.5 py-1.5 text-xs",
         sm: "py-2 px-3 text-sm",
         base: "py-2.5 px-5 text-sm",
         large: "py-3 px-5 text-base",
@@ -44,7 +44,7 @@ module Mdn
       end
 
       def default_classes
-        "focus:outline-none focus:ring-4 font-medium inline-flex justify-center items-center gap-1"
+        "focus:outline-none focus:ring-4 font-medium inline-flex justify-center items-center gap-1 rounded"
       end
 
       def disabled_classes

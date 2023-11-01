@@ -13,7 +13,7 @@ RSpec.describe "Account update" do
 
       click_link href: edit_account_path(account)
 
-      expect(page).to have_css("h2", text: I18n.t("accounts.edit_page.header_title"))
+      expect(page).to have_css("h2", text: account.title)
 
       fill_in I18n.t("activerecord.attributes.account.title"), with: "New title"
       click_button I18n.t(".accounts.form_component.update_account_button")
@@ -33,7 +33,7 @@ RSpec.describe "Account update" do
 
       click_link href: edit_account_path(account)
 
-      expect(page).to have_css("h2", text: I18n.t("accounts.edit_page.header_title"))
+      expect(page).to have_css("h2", text: account.title)
 
       fill_in I18n.t("activerecord.attributes.account.title"), with: ""
       click_button I18n.t(".accounts.form_component.update_account_button")

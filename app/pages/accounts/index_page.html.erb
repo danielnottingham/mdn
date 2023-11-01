@@ -1,9 +1,11 @@
 <%= render Application::FrameComponent.new(current_user: current_user, current_controller: controller) do %>
-  <%= mdn_main_content(title: t(".header_title")) do %>
+  <%= mdn_main_content(title: t(".header_title")) do |main| %>
+    <% main.with_action do %>
+      <%= mdn_button(size: :xs, href: new_account_path) do %>
+        <%= mdn_icon(name: :plus, class: "h-5 w-5") %>
+        <%= t(".new_account") %>
+      <% end %>
+    <% end %>
     <%= render Accounts::ListComponent.new(accounts: accounts) %>
-
-    <div class="mt-4">
-      <%= mdn_button(builder: :link_to, href: new_account_path) { t(".new_account") } %>
-    </div>
   <% end %>
 <% end %>

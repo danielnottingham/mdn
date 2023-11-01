@@ -1,9 +1,10 @@
 <%= render Application::FrameComponent.new(current_user: current_user, current_controller: controller) do %>
-  <%= mdn_main_content(title: t(".header_title")) do %>
+  <%= mdn_main_content(title: t(".header_title")) do |main| %>
+    <% main.with_action do %>
+      <%= mdn_button(href: accounts_path, size: :sm, color: :light, title: t(".back_to_list")) do %>
+        <%= mdn_icon(name: :arrow_left, class: "h-5 w-5") %>
+      <% end %>
+    <% end %>
     <%= render Accounts::FormComponent.new(account: account, url: accounts_path) %>
-
-    <div class="mt-4">
-      <%= mdn_button(builder: :link_to, href: accounts_path, color: :light) { t(".back_to_list") } %>
-    </div>
   <% end %>
 <% end %>

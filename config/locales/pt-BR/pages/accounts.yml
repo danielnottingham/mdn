@@ -7,7 +7,7 @@ pt-BR:
       header_title: Nova conta
       back_to_list: Voltar
     edit_page:
-      header_title: Editar conta
+      header_title: "%{account}"
       back_to_list: Voltar
       destroy: Excluir conta
       destroy_confirm: Todas as transações desta conta serão excluídas. Tem certeza?

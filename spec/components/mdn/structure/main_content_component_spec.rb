@@ -8,4 +8,17 @@ RSpec.describe Mdn::Structure::MainContentComponent, type: :component do
 
     expect(rendered).to have_css("h2", text: "main content title").and have_css("main", text: "content")
   end
+
+  it "renders action slot" do
+    rendered = render_inline(
+      described_class.new(title: "main content title")
+    ) do |main|
+      main.with_action { "Some action here" }
+
+      "content"
+    end
+
+    expect(rendered).to have_css("h2", text: "main content title").and have_css("main", text: "content")
+      .and have_text("Some action here")
+  end
 end

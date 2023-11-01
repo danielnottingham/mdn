@@ -1,32 +1,16 @@
-<div class="relative overflow-x-auto">
-  <table class="w-full text-sm text-left border border-gray-100 text-gray-500 dark:text-gray-400">
-    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-      <tr>
-        <th scope="col" class="px-6 py-3">
-          <%= t(".title") %>
-        </th>
-        <th scope="col" class="px-6 py-3">
-          <%= t(".balance_cents") %>
-        </th>
-        <th scope="col" class="px-6 py-3">
-          <%= t(".actions") %>
-        </th>
-      </tr>
-    </thead>
-      <tbody>
-        <% accounts.each do |account| %>
-          <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-              <span class="text-sm text-white font-medium mr-2 px-2 py-1 rounded" style="background-color: <%= account.color %>"><%= account.title %></span>
-            </th>
-            <td class="px-6 py-4">
-              <%= account.balance.format %>
-            </td>
-            <td class="px-6 py-4">
-              <%= mdn_button(href: edit_account_path(account), color: :slate) { t(".edit") } %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-  </table>
-</div>
+<ul class="bg-white p-4 flex flex-col gap-4 border border-solid shadow">
+  <% accounts.each do |account| %>
+    <li>
+      <div href="#" class="flex flex-row items-center justify-between gap-2 rounded bg-gray-50 p-4 overflow-hidden hover:bg-gray-100 hover:shadow">
+        <div class="text-sm text-white font-medium mr-2 px-2 py-1 rounded" style="background-color: <%= account.color %>"><%= account.title %></div>
+        <div><%= account.balance.format %></div>
+
+        <div>
+          <%= mdn_button(builder: :link_to, href: edit_account_path(account), size: :xs, color: :light, title: t(".edit")) do %>
+             <%= mdn_icon(name: :pencil_square, class: "text-gray-400 h-6 w-6") %>
+          <% end %>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>

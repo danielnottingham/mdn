@@ -1,13 +1,15 @@
 <%= render Application::FrameComponent.new(current_user: current_user, current_controller: controller) do %>
-  <%= mdn_main_content(title: t(".header_title")) do %>
-    <%= render Accounts::FormComponent.new(account: account, url: account_path(account.id)) %>
+  <%= mdn_main_content(title: t(".header_title", account: account.title)) do |main| %>
+    <% main.with_action do %>
+      <%= mdn_button(href: accounts_path, size: :sm, color: :light, title: t(".back_to_list")) do %>
+        <%= mdn_icon(name: :arrow_left, class: "h-5 w-5") %>
+      <% end %>
 
-    <div class="mt-4 flex gap-2">
-      <%= mdn_button(href: accounts_path, color: :light) { t(".back_to_list") } %>
-
-      <%= mdn_button(builder: :button_to, href: account_path(account), color: :red, method: :delete, data: { turbo: false, controller: "confirm", confirm_message_value: t(".destroy_confirm") }) do %>
+      <%= mdn_button(builder: :button_to, href: account_path(account), size: :sm, color: :red, method: :delete, data: { turbo: false, controller: "confirm", confirm_message_value: t(".destroy_confirm") }) do %>
         <%= t(".destroy") %>
       <% end %>
-    </div>
+    <% end %>
+
+    <%= render Accounts::FormComponent.new(account: account, url: account_path(account.id)) %>
   <% end %>
 <% end %>
