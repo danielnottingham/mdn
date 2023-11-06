@@ -36,6 +36,6 @@
 /node_modules
 coverage
 
-# Ignore all environment files (except templates).
+# Ignore all environment files (except example).
 /.env*
-!/.env*.erb
+!/.env.example

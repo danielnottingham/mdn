@@ -7,5 +7,11 @@ module Accounts
     def initialize(accounts:)
       @accounts = accounts
     end
+
+    private
+
+    def render?
+      accounts.any?
+    end
   end
 end
