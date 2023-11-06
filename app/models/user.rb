@@ -7,6 +7,7 @@ class User < ApplicationRecord
     :recoverable, :rememberable, :validatable
 
   has_many :accounts, dependent: :destroy
+  has_many :categories, dependent: :destroy
 
   validates :full_name, length: { maximum: 60 }
 end
