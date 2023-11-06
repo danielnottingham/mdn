@@ -3,14 +3,17 @@
 ## Requerimentos:
 - Ruby 3.2.2
 - Node 20.7.0
+- Docker
+- Docker-Compose
 
-#### Defina as credenciais do banco no seu arquivo .env
+## Iniciando:
+1. Clone o repositório para o seu ambiente local.
+2. Navegue até o diretório raiz do aplicativo.
+3. Crie um arquivo .env baseado no .env.example
 ```
-POSTGRES_HOST=seu_host
-POSTGRES_USER=usuario_de_acesso
-POSTGRES_PASSWORD=sua_senha
-POSTGRES_PORT=porta_do_banco
+$ cp .env.example .env
 ```
+4. Execute o comando: `bin/setup` e após a instação das dependencias execute: `bin/dev`
 
 ---
 ## Linters:
