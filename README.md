@@ -13,7 +13,7 @@
 ```
 $ cp .env.example .env
 ```
-4. Execute o comando: `bin/setup` e após a instação das dependencias execute: `bin/dev`
+4. Execute o comando: `bin/setup` e após a instalação das dependências execute: `bin/dev`
 
 ---
 ## Linters:
