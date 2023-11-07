@@ -2,4 +2,5 @@
 
 class ApplicationPage < ViewComponent::Base
   include Translatable
+  include ActionPolicy::Behaviour
 end
