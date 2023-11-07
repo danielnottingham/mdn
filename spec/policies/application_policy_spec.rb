@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "rails_helper"
-require "action_policy/rspec"
 
 RSpec.describe ApplicationPolicy do
   # rubocop:disable RSpec/ExpectActual
