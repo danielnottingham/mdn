@@ -24,6 +24,7 @@ module Mdn
         bolt: :solid,
         pencil_square: :solid,
         plus: :solid,
+        tag: :solid,
         trash: :solid,
         twitter: :solid,
         user: :solid,

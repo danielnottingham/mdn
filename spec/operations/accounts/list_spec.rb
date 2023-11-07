@@ -13,4 +13,14 @@ RSpec.describe Accounts::List, type: :operation do
 
     expect(result.accounts.to_a).to eq [cora_account, inter_account, nubank_account]
   end
+
+  it "accepts scope" do
+    user = create(:user)
+    first_accounts = create_list(:account, 3, created_at: Time.zone.yesterday, user: user)
+    create_list(:account, 3, created_at: Time.zone.tomorrow, user: user)
+
+    result = described_class.result(scope: Account.where(created_at: ..Time.zone.today))
+
+    expect(result.accounts.to_a).to match_array(first_accounts)
+  end
 end

@@ -14,5 +14,9 @@ module Application
     def activate_accounts_menu_item?
       current_controller.is_a?(AccountsController)
     end
+
+    def activate_categories_menu_item?
+      current_controller.is_a?(CategoriesController)
+    end
   end
 end
