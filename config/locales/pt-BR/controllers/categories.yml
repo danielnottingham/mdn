@@ -1,0 +1,9 @@
+pt-BR:
+  categories:
+    create:
+      success: A categoria foi criada com sucesso
+    update:
+      success: A categoria foi atualizada com sucesso
+    destroy:
+      success: A categoria foi excluída com sucesso
+      error: A categoria não pôde ser excluída

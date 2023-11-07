@@ -1,9 +1,8 @@
 pt-BR:
   activerecord:
     models:
-      account: Conta
+      category: Categoria
     attributes:
-      account:
+      category:
         title: Título
-        balance_cents: Saldo
         color: Cor

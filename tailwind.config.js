@@ -12,6 +12,7 @@ module.exports = {
   plugins: [require('flowbite/plugin')],
   theme: {
     extend: {
+      screens: { xs: '480px' },
       fontFamily: {
         primary: ['JetBrains Mono', 'monospace']
       },

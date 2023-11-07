@@ -14,6 +14,7 @@ RSpec.describe Application::FrameComponent, type: :component do
     end
     sidebar = render_inline(Mdn::Structure::SidebarComponent.new) do |side|
       side.with_item(href: accounts_path, icon: :wallet) { "Contas" }
+      side.with_item(href: categories_path, icon: :tag) { "Categorias" }
     end
 
     expect(rendered.to_html).to include(navbar.to_html, sidebar.to_html)

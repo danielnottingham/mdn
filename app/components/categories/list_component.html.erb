@@ -1,0 +1,15 @@
+<ul class="p-4 flex flex-col gap-4 grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
+  <% categories.each do |category| %>
+    <li>
+      <div href="#" class="flex flex-row items-center justify-between gap-2 border rounded bg-white p-4 min-w-[170px] overflow-hidden hover:bg-gray-100 hover:shadow">
+        <div class="text-sm text-white font-medium mr-2 px-2 py-1 rounded" style="background-color: <%= category.color %>"><%= category.title %></div>
+
+        <div>
+          <%= mdn_button(builder: :link_to, href: edit_category_path(category), size: :xs, color: :light, title: t(".edit")) do %>
+            <%= mdn_icon(name: :pencil_square, class: "text-gray-400 h-6 w-6") %>
+          <% end %>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>

@@ -1,0 +1,10 @@
+<%= render Application::FrameComponent.new(current_user: current_user, current_controller: controller) do %>
+  <%= mdn_main_content(title: t(".header_title")) do |main| %>
+    <% main.with_action do %>
+      <%= mdn_button(href: categories_path, size: :sm, color: :light, title: t(".back_to_list")) do %>
+        <%= mdn_icon(name: :arrow_left, class: "h-5 w-5") %>
+      <% end %>
+    <% end %>
+    <%= render Categories::FormComponent.new(category: category, url: categories_path) %>
+  <% end %>
+<% end %>

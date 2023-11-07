@@ -1,0 +1,10 @@
+pt-BR:
+  categories:
+    form_component:
+      new_category_button: Criar categoria
+      update_category_button: Atualizar categoria
+    list_component:
+      title: Título
+      color: Cor
+      actions: Ações
+      edit: Editar

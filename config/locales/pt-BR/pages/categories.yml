@@ -1,0 +1,13 @@
+pt-BR:
+  categories:
+    index_page:
+      header_title: Categorias
+      new_category: Nova categoria
+    new_page:
+      header_title: Nova categoria
+      back_to_list: Voltar
+    edit_page:
+      header_title: "%{category}"
+      back_to_list: Voltar
+      destroy: Excluir categoria
+      destroy_confirm: Tem certeza que deseja excluir a categoria?
