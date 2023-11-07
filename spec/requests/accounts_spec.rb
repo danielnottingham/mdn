@@ -4,62 +4,89 @@ require "rails_helper"
 
 RSpec.describe "Accounts" do
   describe "GET #index" do
-    context "when user is logged in" do
-      it "returns a successful response" do
-        sign_in
-        get accounts_path
+    it "requires authentication" do
+      build_stubbed(:account)
+      get accounts_path
 
-        expect(response).to have_http_status :ok
-      end
+      expect(response).to be_authenticated
     end
 
-    context "when user is not logged in" do
-      it "returns a redirect response" do
-        get accounts_path
+    it "returns a successful response" do
+      sign_in
+      get accounts_path
 
-        expect(response).to have_http_status :redirect
-      end
+      expect(response).to have_http_status :ok
     end
   end
 
   describe "GET #new" do
-    context "when user is logged in" do
-      it "returns a successful response" do
-        sign_in
-        get new_account_path
+    it "requires authentication" do
+      get new_account_path
 
-        expect(response).to have_http_status :ok
-      end
+      expect(response).to be_authenticated
     end
 
-    context "when user is not logged in" do
-      it "returns a redirect response" do
-        get new_account_path
+    it "returns a successful response" do
+      sign_in
+      get new_account_path
 
-        expect(response).to have_http_status :redirect
-      end
+      expect(response).to have_http_status :ok
     end
   end
 
   describe "GET #edit" do
-    context "when user is logged in" do
-      it "returns a successful response" do
-        user = create(:user)
-        sign_in(user)
-        account = create(:account, user: user)
-        get edit_account_path(account)
+    it "requires authentication" do
+      account = create(:account)
+      get edit_account_path(account)
 
-        expect(response).to have_http_status :ok
-      end
+      expect(response).to be_authenticated
     end
 
-    context "when user is not logged in" do
-      it "returns a redirect response" do
-        account = create(:account)
-        get edit_account_path(account)
+    it "authorizes account" do
+      sign_in
+      account = create(:account)
 
-        expect(response).to have_http_status :redirect
-      end
+      expect { get edit_account_path(account) }.to be_authorized_to(:update?, account)
+    end
+  end
+
+  describe "POST #create" do
+    it "requires authentication" do
+      post accounts_path
+
+      expect(response).to be_authenticated
+    end
+  end
+
+  describe "PUT #update" do
+    it "authorizes account" do
+      sign_in
+      account = create(:account)
+
+      expect { put account_path(account.id) }.to be_authorized_to(:update?, account)
+    end
+
+    it "requires authentication" do
+      account = create(:account)
+      put account_path(account)
+
+      expect(response).to be_authenticated
+    end
+  end
+
+  describe "DELETE #destroy" do
+    it "authorizes account" do
+      sign_in
+      account = create(:account)
+
+      expect { delete account_path(account) }.to be_authorized_to(:destroy?, account)
+    end
+
+    it "requires authentication" do
+      account = create(:account)
+      delete account_path(account)
+
+      expect(response).to be_authenticated
     end
   end
 end

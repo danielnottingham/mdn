@@ -2,7 +2,7 @@
 
 class AccountsController < ApplicationController
   def index
-    result = Accounts::List.result(scope: Account.all)
+    result = Accounts::List.result(scope: authorized_accounts_scope)
 
     render Accounts::IndexPage.new(accounts: result.accounts, current_user: current_user)
   end
@@ -12,6 +12,8 @@ class AccountsController < ApplicationController
   end
 
   def edit
+    authorize! account
+
     render Accounts::EditPage.new(account: account, current_user: current_user)
   end
 
@@ -26,7 +28,8 @@ class AccountsController < ApplicationController
   end
 
   def update
-    result = Accounts::Update.result(id: params[:id], attributes: account_params)
+    authorize! account
+    result = Accounts::Update.result(id: account.id, attributes: account_params)
 
     if result.success?
       redirect_to accounts_path, success: t(".success")
@@ -36,7 +39,8 @@ class AccountsController < ApplicationController
   end
 
   def destroy
-    result = Accounts::Destroy.result(id: params[:id])
+    authorize! account
+    result = Accounts::Destroy.result(id: account.id)
 
     if result.success?
       redirect_to accounts_path, success: t(".success")
@@ -46,6 +50,11 @@ class AccountsController < ApplicationController
   end
 
   private
+
+  def authorized_accounts_scope
+    scope = authorized_scope(Account.all, with: AccountPolicy)
+    Accounts::List.result(scope: scope).accounts
+  end
 
   def account
     @account ||= Accounts::Find.result(id: params[:id]).account

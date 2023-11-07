@@ -2,7 +2,7 @@
 
 class CategoriesController < ApplicationController
   def index
-    result = Categories::List.result
+    result = Categories::List.result(scope: authorized_categories_scope)
 
     render Categories::IndexPage.new(categories: result.categories, current_user: current_user)
   end
@@ -12,6 +12,8 @@ class CategoriesController < ApplicationController
   end
 
   def edit
+    authorize! category
+
     render Categories::EditPage.new(category: category, current_user: current_user)
   end
 
@@ -27,7 +29,8 @@ class CategoriesController < ApplicationController
   end
 
   def update
-    result = Categories::Update.result(id: params[:id], attributes: category_params)
+    authorize! category
+    result = Categories::Update.result(id: category.id, attributes: category_params)
 
     if result.success?
       redirect_to categories_path, success: t(".success")
@@ -38,6 +41,7 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
+    authorize! category
     result = Categories::Destroy.result(id: params[:id])
 
     if result.success?
@@ -48,6 +52,11 @@ class CategoriesController < ApplicationController
   end
 
   private
+
+  def authorized_categories_scope
+    scope = authorized_scope(Category.all, with: CategoryPolicy)
+    Categories::List.result(scope: scope).categories
+  end
 
   def category
     @category ||= Categories::Find.result(id: params[:id]).category

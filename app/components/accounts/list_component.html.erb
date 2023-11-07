@@ -6,9 +6,7 @@
         <div><%= account.balance.format %></div>
 
         <div>
-          <%= mdn_button(builder: :link_to, href: edit_account_path(account), size: :xs, color: :light, title: t(".edit")) do %>
-             <%= mdn_icon(name: :pencil_square, class: "text-gray-400 h-6 w-6") %>
-          <% end %>
+          <%= edit_button(account) %>
         </div>
       </div>
     </li>
