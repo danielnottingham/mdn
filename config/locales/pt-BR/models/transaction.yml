@@ -1,0 +1,12 @@
+pt-BR:
+  activerecord:
+    models:
+      transaction: Transação
+    attributes:
+      transaction:
+        title: Título
+        amount_cents: Valor
+        transaction_date: Data da transação
+        transaction_type: Tipo da transação
+        payee: Beneficiário
+        description: Descrição

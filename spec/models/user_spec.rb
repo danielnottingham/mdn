@@ -5,6 +5,7 @@ require "rails_helper"
 RSpec.describe User do
   describe "associations" do
     it { is_expected.to have_many(:accounts).dependent(:destroy) }
+    it { is_expected.to have_many(:categories).dependent(:destroy) }
   end
 
   describe "validations" do
