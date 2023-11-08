@@ -15,9 +15,11 @@ module Mdn
 
       ICON_TYPE = {
         arrow_left: :solid,
+        building_library: :solid,
         calendar: :solid,
         check: :solid,
         cog_6_tooth: :solid,
+        eye: :solid,
         facebook: :solid,
         home: :solid,
         information_circle: :solid,

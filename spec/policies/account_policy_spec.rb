@@ -17,6 +17,28 @@ RSpec.describe AccountPolicy do
     end
   end
 
+  describe "#show?" do
+    context "when user is the account owner" do
+      it "returns true" do
+        user = create(:user)
+        account = create(:account, user: user)
+        policy = described_class.new(account, user: user)
+
+        expect(policy.apply(:show?)).to be true
+      end
+    end
+
+    context "when use isn't the account owner" do
+      it "returns false" do
+        user = create(:user)
+        account = create(:account)
+        policy = described_class.new(account, user: user)
+
+        expect(policy.apply(:show?)).to be false
+      end
+    end
+  end
+
   describe "#update?" do
     context "when user is the account owner" do
       it "returns true" do

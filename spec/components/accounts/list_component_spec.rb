@@ -12,6 +12,7 @@ RSpec.describe Accounts::ListComponent, type: :component do
       expect(rendered.to_html).to have_text(account.title)
         .and have_text(account.balance_cents)
         .and have_link(I18n.t("accounts.list_component.edit"), href: edit_account_path(account.id))
+        .and have_link(I18n.t("accounts.list_component.show"), href: account_path(account.id))
     end
   end
 end
