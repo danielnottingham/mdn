@@ -21,5 +21,11 @@ module Accounts
         mdn_icon(name: :pencil_square, class: "text-gray-400 h-6 w-6")
       end
     end
+
+    def show_button(account)
+      mdn_button(builder: :link_to, href: account_path(account), size: :xs, color: :light, title: t(".show")) do
+        mdn_icon(name: :eye, class: "text-gray-400 h-6 w-6")
+      end
+    end
   end
 end

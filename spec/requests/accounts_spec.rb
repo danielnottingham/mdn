@@ -19,6 +19,22 @@ RSpec.describe "Accounts" do
     end
   end
 
+  describe "GET #show" do
+    it "requires authentication" do
+      account = create(:account)
+      get account_path(account)
+
+      expect(response).to be_authenticated
+    end
+
+    it "authorizes account" do
+      sign_in
+      account = create(:account)
+
+      expect { get account_path(account) }.to be_authorized_to(:show?, account)
+    end
+  end
+
   describe "GET #new" do
     it "requires authentication" do
       get new_account_path

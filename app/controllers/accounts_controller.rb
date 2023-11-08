@@ -7,6 +7,12 @@ class AccountsController < ApplicationController
     render Accounts::IndexPage.new(accounts: result.accounts, current_user: current_user)
   end
 
+  def show
+    authorize! account
+
+    render Accounts::ShowPage.new(account: account, current_user: current_user)
+  end
+
   def new
     render Accounts::NewPage.new(account: Account.new, current_user: current_user)
   end

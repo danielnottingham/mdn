@@ -1,0 +1,17 @@
+<%= render Application::FrameComponent.new(current_user: current_user, current_controller: controller) do %>
+  <%= mdn_main_content(title: t(".header_title", account: account.title)) do |main| %>
+    <% main.with_action do %>
+      <%= mdn_button(href: accounts_path, size: :sm, color: :light, title: t(".back_to_list")) do %>
+        <%= mdn_icon(name: :arrow_left, class: "h-5 w-5") %>
+      <% end %>
+    <% end %>
+
+    <h3 class="text-xl font-semibold mb-1 mt-4"><%= t(".account_info") %></h2>
+    <div class="p-6 bg-white border rounded" style="border-bottom: 2px solid <%= account.color %>;">
+      <div class="flex flex-col gap-2">
+        <p class="text-lg font-semibold">Titular da conta: <span class="font-normal"><%= account.user.full_name %></span></p>
+        <p class="text-lg font-semibold">Saldo disponível: <span class="font-normal"><%= account.balance.format %></span></p>
+      </div>
+    </div>
+  <% end %>
+<% end %>

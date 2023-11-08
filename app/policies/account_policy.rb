@@ -5,6 +5,10 @@ class AccountPolicy < ApplicationPolicy
     relation.where(user: user)
   end
 
+  def show?
+    owner?
+  end
+
   def update?
     owner?
   end

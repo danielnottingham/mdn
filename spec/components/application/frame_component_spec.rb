@@ -7,14 +7,18 @@ RSpec.describe Application::FrameComponent, type: :component do
     user = build_stubbed(:user)
     controller = "app/controllers/accounts_controller.rb"
     rendered = render_inline(described_class.new(current_user: user, current_controller: controller))
-    navbar = render_inline(Mdn::Structure::NavbarComponent.new(title: "MDN")) do |nav|
+    navbar = render_inline(
+      Mdn::Structure::NavbarComponent.new(title: I18n.t(".application.frame_component.navbar_title"))
+    ) do |nav|
       nav.with_item(builder: :button_to, href: destroy_user_session_path, method: :delete, data: { turbo: false }) do
         "Sair"
       end
     end
     sidebar = render_inline(Mdn::Structure::SidebarComponent.new) do |side|
-      side.with_item(href: accounts_path, icon: :wallet) { "Contas" }
-      side.with_item(href: categories_path, icon: :tag) { "Categorias" }
+      side.with_item(href: accounts_path, icon: :building_library) do
+        I18n.t(".application.frame_component.menu_item_accounts")
+      end
+      side.with_item(href: categories_path, icon: :tag) { I18n.t(".application.frame_component.menu_item_categories") }
     end
 
     expect(rendered.to_html).to include(navbar.to_html, sidebar.to_html)

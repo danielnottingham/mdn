@@ -11,3 +11,7 @@ pt-BR:
       back_to_list: Voltar
       destroy: Excluir conta
       destroy_confirm: Todas as transações desta conta serão excluídas. Tem certeza?
+    show_page:
+      header_title: "%{account}"
+      back_to_list: Voltar
+      account_info: Informações da conta
