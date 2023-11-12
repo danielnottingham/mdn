@@ -9,6 +9,7 @@
     <%= mdn_sidebar do |side| %>
       <% side.with_item(href: accounts_path, icon: :building_library, active: activate_accounts_menu_item?) { t(".menu_item_accounts") } %>
       <% side.with_item(href: categories_path, icon: :tag, active: activate_categories_menu_item?) { t(".menu_item_categories") } %>
+      <% side.with_item(href: transactions_path, icon: :currency_dollar, active: activate_transactions_menu_item?) { t(".menu_item_transactions") } %>
     <% end %>
   <% end %>
 

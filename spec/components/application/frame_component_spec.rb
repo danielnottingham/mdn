@@ -19,6 +19,9 @@ RSpec.describe Application::FrameComponent, type: :component do
         I18n.t(".application.frame_component.menu_item_accounts")
       end
       side.with_item(href: categories_path, icon: :tag) { I18n.t(".application.frame_component.menu_item_categories") }
+      side.with_item(href: transactions_path, icon: :currency_dollar) do
+        I18n.t(".application.frame_component.menu_item_transactions")
+      end
     end
 
     expect(rendered.to_html).to include(navbar.to_html, sidebar.to_html)

@@ -19,6 +19,7 @@ module Mdn
         calendar: :solid,
         check: :solid,
         cog_6_tooth: :solid,
+        currency_dollar: :solid,
         eye: :solid,
         facebook: :solid,
         home: :solid,

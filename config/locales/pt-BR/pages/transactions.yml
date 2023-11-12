@@ -1,0 +1,5 @@
+pt-BR:
+  transactions:
+    index_page:
+      header_title: Transações
+      new_transaction: Nova transação
