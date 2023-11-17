@@ -3,3 +3,6 @@ pt-BR:
     index_page:
       header_title: Transações
       new_transaction: Nova transação
+    new_page:
+      header_title: Nova transação
+      back_to_list: Voltar

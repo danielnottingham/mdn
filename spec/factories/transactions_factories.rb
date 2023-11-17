@@ -13,6 +13,12 @@ FactoryBot.define do
     account { association :account, user: user }
     category { association :category, user: user }
 
+    trait :income do
+      transaction_type { TransactionTypes::INCOME }
+    end
+    trait :expense do
+      transaction_type { TransactionTypes::EXPENSE }
+    end
     traits_for_enum(:transaction_type, TransactionTypes.list)
   end
 end

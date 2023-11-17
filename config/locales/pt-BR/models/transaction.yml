@@ -10,3 +10,6 @@ pt-BR:
         transaction_type: Tipo da transação
         payee: Beneficiário
         description: Descrição
+        account: Conta
+        account_id: Conta
+        category_id: Categoria

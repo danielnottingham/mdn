@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   root "accounts#index"
   resources :accounts
   resources :categories
-  resources :transactions, only: :index
+  resources :transactions, only: %i[index new create]
 end

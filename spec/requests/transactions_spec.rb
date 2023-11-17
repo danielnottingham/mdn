@@ -18,4 +18,46 @@ RSpec.describe "Transactions" do
       expect(response).to have_http_status :ok
     end
   end
+
+  describe "GET #new" do
+    it "uses accounts authorized scope" do
+      sign_in
+
+      expect { get new_transaction_path }.to have_authorized_scope(:active_record_relation).with(AccountPolicy)
+    end
+
+    it "uses categories authorized scope" do
+      sign_in
+
+      expect { get new_transaction_path }.to have_authorized_scope(:active_record_relation).with(CategoryPolicy)
+    end
+
+    it "requires authentication" do
+      get new_transaction_path
+
+      expect(response).to be_authenticated
+    end
+  end
+
+  describe "POST #create" do
+    it "authorizes related data" do
+      user = sign_in
+
+      account = create(:account, user: user)
+      category = create(:category, user: user)
+
+      expect do
+        post transactions_path, params: { transaction: { account_id: account.id, category_id: category.id } }
+      end.to(
+        be_authorized_to(:show?, account)
+        .and(be_authorized_to(:show?, category))
+      )
+    end
+
+    it "requires authentication" do
+      get new_transaction_path
+
+      expect(response).to be_authenticated
+    end
+  end
 end

@@ -1,0 +1,7 @@
+pt-BR:
+  transactions:
+    form_component:
+      new_transaction_button: Criar transação
+      update_transaction_button: Atualizar transação
+      account_prompt: Selecione uma conta
+      category_prompt: Selecione uma categoria

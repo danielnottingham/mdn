@@ -2,6 +2,6 @@
 
 class TransactionPolicy < ApplicationPolicy
   relation_scope do |relation|
-    relation.includes(account: :user).where(users: { id: user.id })
+    relation.joins(:account).where(accounts: { user_id: user.id })
   end
 end

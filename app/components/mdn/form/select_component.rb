@@ -15,8 +15,8 @@ module Mdn
       private
 
       def select_classes
-        "bg-white border rounded-lg block w-full outline-none hover:border-indigo-600
-        focus:outline-indigo-100 focus:outline-offset-0 focus:outline-4 focus:border-indigo-500 transition-all
+        "bg-white border border-gray-300 rounded block w-full outline-none hover:border-indigo-600
+        focus:border-indigo-500 focus:outline-offset-0 focus:outline-4 focus:border-indigo-500 transition-all
         duration-150 ease-in-out".squish
       end
     end

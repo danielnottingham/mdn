@@ -19,7 +19,8 @@ module Mdn
       end
 
       def default_classes
-        "block w-full border border-gray-300 bg-gray-50 text-gray-900 focus:border-indigo-500 focus:ring-indigo-500"
+        "block w-full border rounded border-gray-300 bg-gray-50 text-gray-900 focus:border-indigo-500
+          focus:ring-indigo-500".squish
       end
 
       def wrapper_classes

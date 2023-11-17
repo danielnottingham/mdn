@@ -1,0 +1,4 @@
+pt-BR:
+  transactions:
+    create:
+      success: A transação foi criada com sucesso
