@@ -60,4 +60,52 @@ RSpec.describe "Transactions" do
       expect(response).to be_authenticated
     end
   end
+
+  describe "PUT #update" do
+    it "authorizes transaction" do
+      sign_in
+
+      transaction = create(:transaction)
+
+      expect { put transaction_path(transaction.id) }.to be_authorized_to(:update?, transaction)
+    end
+
+    it "authorizes related data" do
+      user = sign_in
+
+      account = create(:account, user: user)
+      category = create(:category, user: user)
+      transaction = create(:transaction, user: user)
+
+      expect do
+        put transaction_path(transaction.id),
+          params: { transaction: { account_id: account.id, category_id: category.id } }
+      end.to(
+        be_authorized_to(:show?, account)
+        .and(be_authorized_to(:show?, category))
+      )
+    end
+
+    it "requires authentication" do
+      get new_transaction_path
+
+      expect(response).to be_authenticated
+    end
+  end
+
+  describe "DELETE #destroy" do
+    it "authorizes transaction" do
+      sign_in
+
+      transaction = create(:transaction)
+
+      expect { delete transaction_path(transaction.id) }.to be_authorized_to(:destroy?, transaction)
+    end
+
+    it "requires authentication" do
+      get new_transaction_path
+
+      expect(response).to be_authenticated
+    end
+  end
 end

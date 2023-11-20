@@ -6,3 +6,8 @@ pt-BR:
     new_page:
       header_title: Nova transação
       back_to_list: Voltar
+    edit_page:
+      header_title: "%{transaction}"
+      back_to_list: Voltar
+      destroy: Excluir transação
+      destroy_confirm: A transação será excluída. Tem certeza?

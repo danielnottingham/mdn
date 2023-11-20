@@ -18,6 +18,17 @@ class TransactionsController < ApplicationController
     )
   end
 
+  def edit
+    authorize! transaction
+
+    render Transactions::EditPage.new(
+      transaction: transaction,
+      accounts: current_accounts,
+      categories: current_categories,
+      current_user: current_user
+    )
+  end
+
   def create
     authorize_related_data!
 
@@ -34,6 +45,38 @@ class TransactionsController < ApplicationController
       )
 
       render new_page, status: :unprocessable_entity
+    end
+  end
+
+  def update
+    authorize! transaction
+    authorize_related_data!
+
+    result = Transactions::Update.result(id: transaction.id, attributes: transaction_params)
+
+    if result.success?
+      redirect_to transactions_path, success: t(".success")
+    else
+      edit_page = Transactions::EditPage.new(
+        transaction: result.transaction,
+        accounts: current_accounts,
+        categories: current_categories,
+        current_user: current_user
+      )
+
+      render edit_page, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    authorize! transaction
+
+    result = Transactions::Destroy.result(id: transaction.id)
+
+    if result.success?
+      redirect_to transactions_path, success: t(".success")
+    else
+      redirect_to edit_transaction_path(result.transaction), error: t(".error")
     end
   end
 
@@ -56,6 +99,10 @@ class TransactionsController < ApplicationController
   def authorize_category
     category = Categories::Find.result(id: transaction_params[:category_id]).category
     authorize!(category, to: :show?)
+  end
+
+  def transaction
+    @transaction ||= Transactions::Find.result(id: params[:id]).transaction
   end
 
   def transaction_params

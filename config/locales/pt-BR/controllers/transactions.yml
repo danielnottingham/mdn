@@ -2,3 +2,8 @@ pt-BR:
   transactions:
     create:
       success: A transação foi criada com sucesso
+    update:
+      success: A transação foi atualizada com sucesso
+    destroy:
+      success: A transação foi excluída com sucesso
+      error: A transação não pôde ser excluída
