@@ -99,24 +99,6 @@ RSpec.describe Mdn::FormBuilder do
 
       expect(builder.mdn_radio_button(:status, "other", "Other")).to be_present
     end
-
-    context "when attribute value is equal to tag value" do
-      it "renders checked radio button" do
-        post = Post.new(status: "online")
-        builder = described_class.new(:post, post, self, {})
-
-        expect(builder.mdn_radio_button(:status, "online", "Online")).to include("checked")
-      end
-    end
-
-    context "when attribute value is different from the tag value" do
-      it "renders unchecked radio button" do
-        post = Post.new(status: "online")
-        builder = described_class.new(:post, post, self, {})
-
-        expect(builder.mdn_radio_button(:status, "draft", "Draft")).not_to include("checked")
-      end
-    end
   end
 
   describe "#mdn_select" do

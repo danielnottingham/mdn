@@ -1,0 +1,20 @@
+<%= render Application::FrameComponent.new(current_user: current_user, current_controller: controller) do %>
+  <%= mdn_main_content(title: t(".header_title", transaction: transaction.title)) do |main| %>
+    <% main.with_action do %>
+      <%= mdn_button(href: transactions_path, size: :sm, color: :light, title: t(".back_to_list")) do %>
+        <%= mdn_icon(name: :arrow_left, class: "h-5 w-5") %>
+      <% end %>
+
+      <%= mdn_button(builder: :button_to, href: transaction_path(transaction), size: :sm, color: :red, method: :delete, data: { turbo: false, controller: "confirm", confirm_message_value: t(".destroy_confirm") }) do %>
+        <%= t(".destroy") %>
+      <% end %>
+    <% end %>
+
+    <%= render Transactions::FormComponent.new(
+      transaction: transaction,
+      accounts: accounts,
+      categories: categories,
+      url: transaction_path(transaction)
+    ) %>
+  <% end %>
+<% end %>

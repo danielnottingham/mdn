@@ -1,0 +1,11 @@
+<%= render Application::FrameComponent.new(current_user: current_user, current_controller: controller) do %>
+  <%= mdn_main_content(title: t(".header_title")) do |main| %>
+    <% main.with_action do %>
+      <%= mdn_button(size: :xs, href: new_transaction_path) do %>
+        <%= mdn_icon(name: :plus, class: "h-5 w-5") %>
+        <%= t(".new_transaction") %>
+      <% end %>
+    <% end %>
+    <%= render Transactions::ListComponent.new(transactions: transactions) %>
+  <% end %>
+<% end %>

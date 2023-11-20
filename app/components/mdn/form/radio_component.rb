@@ -18,7 +18,7 @@ module Mdn
       end
 
       def base_classes
-        "w-4 h-4 text-indigo-600 bg-white border-gray-300 focus:ring-indigo-500 focus:ring-2"
+        "hidden peer"
       end
 
       def disabled_classes
@@ -34,7 +34,9 @@ module Mdn
       end
 
       def label_base_classes
-        "text-sm font-medium text-gray-900"
+        "inline-flex items-center justify-center w-full p-5 text-gray-500 bg-white border border-gray-200
+          rounded cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600
+          hover:bg-gray-100".squish
       end
 
       def label_disabled_classes

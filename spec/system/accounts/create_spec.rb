@@ -8,12 +8,11 @@ RSpec.describe "Account create" do
       sign_in
       visit accounts_path
 
-      click_link href: new_account_path
+      click_link I18n.t("accounts.index_page.new_account")
 
       expect(page).to have_css("h2", text: I18n.t("accounts.new_page.header_title"))
 
       fill_in I18n.t("activerecord.attributes.account.title"), with: "My Account title"
-      fill_in I18n.t("activerecord.attributes.account.balance_cents"), with: "100"
       fill_in I18n.t("activerecord.attributes.account.color"), with: "#ffffff"
       click_button I18n.t(".accounts.form_component.new_account_button")
 
@@ -32,11 +31,10 @@ RSpec.describe "Account create" do
       expect(page).to have_css("h2", text: I18n.t("accounts.new_page.header_title"))
 
       fill_in I18n.t("activerecord.attributes.account.title"), with: ""
-      fill_in I18n.t("activerecord.attributes.account.balance_cents"), with: ""
       fill_in I18n.t("activerecord.attributes.account.color"), with: "#ffffff"
       click_button I18n.t(".accounts.form_component.new_account_button")
 
-      expect(page).to have_form_errors(quantity: 2)
+      expect(page).to have_form_errors(quantity: 1)
       expect(page).to have_css("h2", text: I18n.t("accounts.new_page.header_title"))
     end
   end
