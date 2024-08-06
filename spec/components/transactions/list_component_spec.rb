@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe Transactions::ListComponent, type: :component do
-  it "renders transactions with title, amount_cents and created_at" do
+  it "renders transactions with title, amount_cents and transaction_date" do
     user = create(:user)
     account = create(:account, user: user)
     transactions = create_list(:transaction, 3, account: account)
@@ -12,7 +12,7 @@ RSpec.describe Transactions::ListComponent, type: :component do
     transactions.each do |transaction|
       expect(rendered.to_html).to have_text(transaction.title)
         .and have_text(transaction.amount_cents)
-        .and have_text(transaction.created_at.strftime("%d %b %y"))
+        .and have_text(transaction.transaction_date.strftime("%d %b %y"))
     end
   end
 end
