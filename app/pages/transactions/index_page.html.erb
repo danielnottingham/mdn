@@ -2,7 +2,6 @@
   <%= mdn_main_content(title: t(".header_title")) do |main| %>
     <% main.with_action do %>
       <%= mdn_button(size: :xs, href: new_transaction_path) do %>
-        <%= mdn_icon(name: :plus, class: "h-5 w-5") %>
         <%= t(".new_transaction") %>
       <% end %>
     <% end %>
